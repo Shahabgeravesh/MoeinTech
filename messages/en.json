@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Transform Your Business with Cutting-Edge Technology",
+    "subtitle": "Leading technology solutions powered by innovation, expertise, and excellence. Under the leadership of Dr. Moeen, we deliver world-class digital transformation services.",
+    "ctaPrimary": "Explore Services",
+    "ctaSecondary": "Contact Us"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive technology solutions to accelerate your business growth",
+    "appDevelopment": {
+      "title": "App & Website Development",
+      "description": "Custom mobile applications and responsive websites built with the latest technologies. From concept to deployment, we create scalable, high-performance digital solutions."
+    },
+    "seoMarketing": {
+      "title": "SEO & Marketing",
+      "description": "Strategic digital marketing and SEO optimization to increase your online visibility, drive traffic, and convert leads into customers. Data-driven strategies that deliver results."
+    },
+    "ai": {
+      "title": "AI Capabilities",
+      "description": "Leverage the power of artificial intelligence and machine learning to automate processes, gain insights, and create intelligent solutions that give your business a competitive edge."
+    },
+    "consulting": {
+      "title": "Business Consulting",
+      "description": "Expert technology consulting to help you make informed decisions, optimize operations, and align your IT strategy with your business objectives for sustainable growth."
+    }
+  },
+  "about": {
+    "title": "About MoeinTech",
+    "subtitle": "Leadership & Excellence",
+    "description": "MoeinTech is a leading technology company dedicated to delivering innovative solutions that drive business success. Under the visionary leadership of Dr. Moeen, we combine technical expertise with strategic insights to help businesses thrive in the digital age.",
+    "drMoeen": {
+      "title": "Dr. Moeen",
+      "role": "Founder & Technology Leader",
+      "bio": "With extensive experience in technology and business innovation, Dr. Moeen leads MoeinTech with a commitment to excellence and a passion for transforming businesses through cutting-edge solutions."
+    }
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "subtitle": "Let's discuss how our technology solutions can accelerate your growth and achieve your business goals.",
+    "button": "Schedule a Consultation"
+  },
+  "footer": {
+    "description": "Leading technology solutions for the digital age.",
+    "company": "Company",
+    "services": "Services",
+    "resources": "Resources",
+    "connect": "Connect",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "support": "Support",
+    "rights": "All rights reserved."
+  }
+}
+
