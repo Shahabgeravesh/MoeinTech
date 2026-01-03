@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     default: 'MoeinTech - Leading Technology Solutions | App Development, SEO, AI & Consulting',
     template: '%s | MoeinTech'
   },
-  description: 'MoeinTech offers cutting-edge technology solutions including app development, website development, SEO & marketing, AI capabilities, and business consulting. Led by Dr. Moeen.',
-  keywords: ['technology solutions', 'app development', 'website development', 'SEO', 'digital marketing', 'AI', 'artificial intelligence', 'business consulting', 'MoeinTech', 'Dr. Moeen'],
+  description: 'MoeinTech offers cutting-edge technology solutions including app development, website development, SEO & marketing, AI capabilities, and business consulting. Led by Dr. Moein.',
+  keywords: ['technology solutions', 'app development', 'website development', 'SEO', 'digital marketing', 'AI', 'artificial intelligence', 'business consulting', 'MoeinTech', 'Dr. Moein'],
   authors: [{ name: 'MoeinTech' }],
   creator: 'MoeinTech',
   publisher: 'MoeinTech',
@@ -100,7 +100,7 @@ export default async function LocaleLayout({
               description: 'Leading technology solutions including app development, SEO, AI capabilities, and business consulting.',
               founder: {
                 '@type': 'Person',
-                name: 'Dr. Moeen',
+                name: 'Dr. Moein',
                 jobTitle: 'Founder & Technology Leader'
               },
               sameAs: [

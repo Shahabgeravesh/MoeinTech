@@ -1,6 +1,6 @@
 # MoeinTech - Professional Technology Solutions Website
 
-A professional, bilingual (English/Farsi) business website built with Next.js 14, TypeScript, Tailwind CSS, and next-intl. The website showcases MoeinTech's services including app development, SEO & marketing, AI capabilities, and business consulting, under the leadership of Dr. Moeen.
+A professional, bilingual (English/Farsi) business website built with Next.js 14, TypeScript, Tailwind CSS, and next-intl. The website showcases MoeinTech's services including app development, SEO & marketing, AI capabilities, and business consulting, under the leadership of Dr. Moein.
 
 ## Features
 
