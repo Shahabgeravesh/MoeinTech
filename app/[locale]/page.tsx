@@ -36,25 +36,25 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href={`/${locale}`} className="text-lg font-semibold text-gray-900 tracking-tight">
+            <Link href={`/${locale}`} className="text-lg font-semibold text-gray-800 tracking-tight">
               MoeinTech
             </Link>
             <div className="hidden md:flex items-center space-x-1">
               <Link 
                 href={`/${locale}#services`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
                 {t('nav.services')}
               </Link>
               <Link 
                 href={`/${locale}#about`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
                 {t('nav.about')}
               </Link>
               <Link 
                 href={`/${locale}#contact`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
                 {t('nav.contact')}
               </Link>
@@ -63,7 +63,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
               <Link
                 href={`/${locale}#contact`}
-                className="ml-2 px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors rounded-md"
+                className="ml-2 px-4 py-2 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 transition-colors rounded-md"
               >
                 {t('nav.getStarted')}
               </Link>
@@ -83,7 +83,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {locale === 'fa' ? 'پیشرو در فناوری' : 'Leading in Technology'}
             </span>
           </div>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold mb-6 leading-tight text-gray-900 tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold mb-6 leading-tight text-gray-800 tracking-tight">
             {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-2xl">
@@ -92,7 +92,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href={`/${locale}#services`}
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors rounded-md"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 transition-colors rounded-md"
             >
               {t('hero.ctaPrimary')}
             </Link>
@@ -111,7 +111,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-800 tracking-tight">
                 {t('services.title')}
               </h2>
               <p className="text-lg text-gray-500 max-w-2xl">
@@ -122,11 +122,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* App Development */}
               <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="w-10 h-10 mb-6 flex items-center justify-center bg-gray-100 rounded-md">
-                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                <h3 className="text-lg font-semibold mb-3 text-gray-800">
                   {t('services.appDevelopment.title')}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -137,11 +137,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* SEO & Marketing */}
               <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="w-10 h-10 mb-6 flex items-center justify-center bg-gray-100 rounded-md">
-                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                <h3 className="text-lg font-semibold mb-3 text-gray-800">
                   {t('services.seoMarketing.title')}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -152,11 +152,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* AI Capabilities */}
               <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="w-10 h-10 mb-6 flex items-center justify-center bg-gray-100 rounded-md">
-                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                <h3 className="text-lg font-semibold mb-3 text-gray-800">
                   {t('services.ai.title')}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -167,11 +167,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* Business Consulting */}
               <div className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="w-10 h-10 mb-6 flex items-center justify-center bg-gray-100 rounded-md">
-                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                <h3 className="text-lg font-semibold mb-3 text-gray-800">
                   {t('services.consulting.title')}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -188,7 +188,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="max-w-5xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-800 tracking-tight">
                 {t('about.title')}
               </h2>
               <p className="text-lg text-gray-500 max-w-2xl">
@@ -198,9 +198,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <div className="w-16 h-16 mb-6 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <span className="text-2xl font-semibold text-gray-900">DM</span>
+                  <span className="text-2xl font-semibold text-gray-700">DM</span>
                 </div>
-                <h3 className="text-2xl font-semibold mb-2 text-gray-900">
+                <h3 className="text-2xl font-semibold mb-2 text-gray-800">
                   {t('about.drMoeen.title')}
                 </h3>
                 <p className="text-sm text-gray-500 font-medium mb-6">
@@ -216,11 +216,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
-                    <div className="text-3xl font-semibold text-gray-900 mb-1">100+</div>
+                    <div className="text-3xl font-semibold text-gray-700 mb-1">100+</div>
                     <div className="text-xs text-gray-500 uppercase tracking-wide">{locale === 'fa' ? 'پروژه موفق' : 'Successful Projects'}</div>
                   </div>
                   <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
-                    <div className="text-3xl font-semibold text-gray-900 mb-1">10+</div>
+                    <div className="text-3xl font-semibold text-gray-700 mb-1">10+</div>
                     <div className="text-xs text-gray-500 uppercase tracking-wide">{locale === 'fa' ? 'سال تجربه' : 'Years Experience'}</div>
                   </div>
                 </div>
@@ -231,18 +231,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="border-t border-gray-100 bg-gray-900">
+      <section id="contact" className="border-t border-gray-100 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-gray-800 tracking-tight">
               {t('cta.title')}
             </h2>
-            <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
+            <p className="text-lg text-gray-600 mb-10 max-w-xl mx-auto">
               {t('cta.subtitle')}
             </p>
             <Link
               href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 transition-colors rounded-md"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 transition-colors rounded-md"
             >
               {t('cta.button')}
             </Link>
@@ -255,48 +255,48 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="text-lg font-semibold text-gray-900 mb-4">MoeinTech</div>
+              <div className="text-lg font-semibold text-gray-800 mb-4">MoeinTech</div>
               <p className="text-sm text-gray-500 leading-relaxed">
                 {t('footer.description')}
               </p>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.company')}</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-4 uppercase tracking-wide">{t('footer.company')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href={`/${locale}#about`} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  <Link href={`/${locale}#about`} className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
                     {t('footer.about')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}#services`} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  <Link href={`/${locale}#services`} className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
                     {t('footer.services')}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}#contact`} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  <Link href={`/${locale}#contact`} className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
                     {t('footer.contact')}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.resources')}</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-4 uppercase tracking-wide">{t('footer.resources')}</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  <a href="#" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
                     {t('footer.blog')}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                  <a href="#" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
                     {t('footer.support')}
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.connect')}</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-4 uppercase tracking-wide">{t('footer.connect')}</h4>
               <div className="flex space-x-3">
                 <a href="#" className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:border-gray-400 transition-colors">
                   <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
