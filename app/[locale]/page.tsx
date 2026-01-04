@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import InquiryForm from '@/components/InquiryForm';
 import Link from 'next/link';
 import { locales } from '@/i18n';
 
@@ -230,22 +231,19 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Contact / Inquiry Form Section */}
       <section id="contact" className="border-t border-gray-100 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white tracking-tight">
-              {t('cta.title')}
-            </h2>
-            <p className="text-lg text-blue-50 mb-10 max-w-xl mx-auto">
-              {t('cta.subtitle')}
-            </p>
-            <Link
-              href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-blue-600 bg-white hover:bg-blue-50 transition-all rounded-md shadow-lg hover:shadow-xl"
-            >
-              {t('cta.button')}
-            </Link>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white tracking-tight">
+                {t('cta.title')}
+              </h2>
+              <p className="text-lg text-blue-50 mb-10 max-w-xl mx-auto">
+                {t('cta.subtitle')}
+              </p>
+            </div>
+            <InquiryForm />
           </div>
         </div>
       </section>

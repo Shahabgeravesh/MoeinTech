@@ -44,8 +44,31 @@
   },
   "cta": {
     "title": "Ready to Transform Your Business?",
-    "subtitle": "Let's discuss how our technology solutions can accelerate your growth and achieve your business goals.",
+    "subtitle": "Submit an inquiry and we'll get back to you to discuss how our technology solutions can accelerate your growth.",
     "button": "Schedule a Consultation"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "service": "Service of Interest",
+    "message": "Message",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "your.email@example.com",
+    "companyPlaceholder": "Your company name (optional)",
+    "servicePlaceholder": "Select a service",
+    "messagePlaceholder": "Tell us about your project or inquiry...",
+    "submit": "Submit Inquiry",
+    "submitting": "Submitting...",
+    "success": "Thank you! Your inquiry has been submitted successfully. We'll get back to you soon.",
+    "error": "Something went wrong. Please try again later.",
+    "serviceOptions": {
+      "appDevelopment": "App & Website Development",
+      "seoMarketing": "SEO & Marketing",
+      "ai": "AI Capabilities",
+      "consulting": "Business Consulting",
+      "other": "Other"
+    }
   },
   "footer": {
     "description": "Leading technology solutions for the digital age.",
