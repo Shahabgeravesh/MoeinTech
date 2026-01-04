@@ -21,34 +21,30 @@ export default function InquiryForm() {
     }
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      company: formData.get('company'),
-      message: formData.get('message'),
-      service: formData.get('service'),
-    };
 
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: formData,
       });
+
+      const responseData = await response.json().catch(() => null);
 
       if (response.ok) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
       } else {
-        const errorData = await response.json().catch(() => ({}));
         setStatus('error');
-        setErrorMessage(errorData.error || t('error'));
+        const errorMsg = responseData?.error || responseData?.errors?.[0]?.message || `Error ${response.status}: ${response.statusText}`;
+        setErrorMessage(errorMsg);
+        console.error('Formspree error:', { status: response.status, data: responseData });
       }
     } catch (error) {
       setStatus('error');
+      console.error('Form submission error:', error);
       setErrorMessage(t('error'));
     }
   };
