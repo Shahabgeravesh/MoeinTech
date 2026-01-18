@@ -54,6 +54,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {t('nav.about')}
               </Link>
               <Link 
+                href={`/${locale}#projects`} 
+                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                {t('nav.projects')}
+              </Link>
+              <Link 
                 href={`/${locale}#contact`} 
                 className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
@@ -224,6 +230,255 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">10+</div>
                     <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{locale === 'fa' ? 'سال تجربه' : 'Years Experience'}</div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="border-t border-gray-100 bg-gradient-to-b from-blue-50/30 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent tracking-tight">
+                {t('projects.title')}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl">
+                {t('projects.subtitle')}
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Court Officer Flashcards App */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  Court Officer Flashcards App
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  A comprehensive study companion for the NY Court Officer exam. Features interactive flashcards, memory & recall practice, reading comprehension, grammar assessments, and situational judgment scenarios.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">Education</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/court-officer-flashcards-app/id6744664594" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Tennis Score Keeper */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">
+                  Tennis Score Keeper
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Track tennis matches with sets, games, and points. Features tiebreak support, match history, court mode, and automatic scoring. Perfect for players, coaches, and fans.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">Sports</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/tennis-score-keeper/id6754825833" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Public Speaking Academy */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  Public Speaking Academy
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Master public speaking through 12 comprehensive modules and 180+ expert-crafted cards. Learn voice mechanics, breathing techniques, storytelling, and confident communication.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">Education</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/public-speaking-academy/id6755028699" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Music Sheet Learn */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-emerald-100 to-green-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-emerald-600 transition-colors">
+                  Music Sheet Learn
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Master reading music notation! Learn treble and bass clefs with interactive lessons, visual guides, and piano keyboard connections. Perfect for beginners and musicians.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">Education</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/music-sheet-learn/id6754809246" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Guard Card California */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-orange-600 transition-colors">
+                  Guard Card California
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Complete guide for California security guard certification. Find training centers, LiveScan locations, study materials, practice quizzes, and official BSIS resources.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">Education</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/guard-card-california/id6751480977" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-orange-600 hover:text-orange-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* DateGenie */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-red-600 transition-colors">
+                  DateGenie
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Discover 72 curated date ideas with scratch-off surprises. Browse by romantic, adventurous, budget-friendly, or luxury experiences. Perfect for couples planning unforgettable moments.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">Lifestyle</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/dategenie/id6749169858" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-red-600 hover:text-red-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* ASIS CPP Exam Prep & Flashcard */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-yellow-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <svg className="w-16 h-16 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors">
+                  ASIS CPP Exam Prep & Flashcard
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Master the ASIS CPP exam with 1,000+ flashcards aligned with exam topics. Organized by chapters covering Security Principles, Risk Management, Legal, and Investigations. Track progress and focus on weak areas.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">Swift</span>
+                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">Education</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/asis-cpp-exam-prep-flashcard/id6741053163" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-yellow-600 hover:text-yellow-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>

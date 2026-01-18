@@ -3,6 +3,7 @@
     "home": "Home",
     "services": "Services",
     "about": "About",
+    "projects": "Projects",
     "contact": "Contact",
     "getStarted": "Get Started"
   },
@@ -41,6 +42,13 @@
       "role": "Founder & Technology Leader",
       "bio": "With extensive experience in technology and business innovation, Dr. Moein leads MoeinTech with a commitment to excellence and a passion for transforming businesses through cutting-edge solutions."
     }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Showcasing our expertise through successful implementations",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo"
   },
   "cta": {
     "title": "Ready to Transform Your Business?",
