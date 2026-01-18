@@ -6,6 +6,13 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'is*.mzstatic.com',
+        pathname: '/image/thumb/**',
+      },
+    ],
   },
 };
 
