@@ -303,8 +303,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   A comprehensive study companion for the NY Court Officer exam. Features interactive flashcards, memory & recall practice, reading comprehension, grammar assessments, and situational judgment scenarios.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">Education</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -346,8 +346,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Track tennis matches with sets, games, and points. Features tiebreak support, match history, court mode, and automatic scoring. Perfect for players, coaches, and fans.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">Sports</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -389,8 +389,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Master public speaking through 12 comprehensive modules and 180+ expert-crafted cards. Learn voice mechanics, breathing techniques, storytelling, and confident communication.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">Education</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -432,8 +432,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Master reading music notation! Learn treble and bass clefs with interactive lessons, visual guides, and piano keyboard connections. Perfect for beginners and musicians.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">Education</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -475,8 +475,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Complete guide for California security guard certification. Find training centers, LiveScan locations, study materials, practice quizzes, and official BSIS resources.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">Education</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -518,8 +518,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Discover 72 curated date ideas with scratch-off surprises. Browse by romantic, adventurous, budget-friendly, or luxury experiences. Perfect for couples planning unforgettable moments.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">Lifestyle</span>
                 </div>
                 <div className="flex gap-3 mt-4">
@@ -561,8 +561,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   Master the ASIS CPP exam with 1,000+ flashcards aligned with exam topics. Organized by chapters covering Security Principles, Risk Management, Legal, and Investigations. Track progress and focus on weak areas.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">Swift</span>
-                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">iOS</span>
+                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">Android & iOS</span>
                   <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">Education</span>
                 </div>
                 <div className="flex gap-3 mt-4">
