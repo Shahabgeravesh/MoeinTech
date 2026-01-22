@@ -298,10 +298,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
-                  Court Officer Flashcards App
+                  {t('projects.courtOfficer.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  A comprehensive study companion for the NY Court Officer exam. Features interactive flashcards, memory & recall practice, reading comprehension, grammar assessments, and situational judgment scenarios.
+                  {t('projects.courtOfficer.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded">React Native</span>
@@ -341,10 +341,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">
-                  Tennis Score Keeper
+                  {t('projects.tennis.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Track tennis matches with sets, games, and points. Features tiebreak support, match history, court mode, and automatic scoring. Perfect for players, coaches, and fans.
+                  {t('projects.tennis.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded">React Native</span>
@@ -384,10 +384,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  Public Speaking Academy
+                  {t('projects.publicSpeaking.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Master public speaking through 12 comprehensive modules and 180+ expert-crafted cards. Learn voice mechanics, breathing techniques, storytelling, and confident communication.
+                  {t('projects.publicSpeaking.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded">React Native</span>
@@ -427,10 +427,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-emerald-600 transition-colors">
-                  Music Sheet Learn
+                  {t('projects.musicSheet.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Master reading music notation! Learn treble and bass clefs with interactive lessons, visual guides, and piano keyboard connections. Perfect for beginners and musicians.
+                  {t('projects.musicSheet.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded">React Native</span>
@@ -470,10 +470,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-orange-600 transition-colors">
-                  Guard Card California
+                  {t('projects.guardCard.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Complete guide for California security guard certification. Find training centers, LiveScan locations, study materials, practice quizzes, and official BSIS resources.
+                  {t('projects.guardCard.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded">React Native</span>
@@ -513,10 +513,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-red-600 transition-colors">
-                  DateGenie
+                  {t('projects.dateGenie.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Discover 72 curated date ideas with scratch-off surprises. Browse by romantic, adventurous, budget-friendly, or luxury experiences. Perfect for couples planning unforgettable moments.
+                  {t('projects.dateGenie.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-50 rounded">React Native</span>
@@ -556,10 +556,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors">
-                  ASIS CPP Exam Prep & Flashcard
+                  {t('projects.asisCpp.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Master the ASIS CPP exam with 1,000+ flashcards aligned with exam topics. Organized by chapters covering Security Principles, Risk Management, Legal, and Investigations. Track progress and focus on weak areas.
+                  {t('projects.asisCpp.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-yellow-600 bg-yellow-50 rounded">React Native</span>
@@ -599,10 +599,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-cyan-600 transition-colors">
-                  Quick Draw :)
+                  {t('projects.quickDraw.title')}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  Draw fast, guess faster. A quick party game for everyone. Quick Draw is a fast, fun drawing-and-guessing party game. Draw a word, let friends guess, and rotate turns across multiple rounds. Great for quick matches and friendly competition.
+                  {t('projects.quickDraw.description')}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="px-2 py-1 text-xs font-medium text-cyan-600 bg-cyan-50 rounded">React Native</span>

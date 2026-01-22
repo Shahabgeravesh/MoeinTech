@@ -48,7 +48,39 @@
     "subtitle": "Showcasing our expertise through successful implementations",
     "viewProject": "View Project",
     "viewCode": "View Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "courtOfficer": {
+      "title": "Court Officer Flashcards App",
+      "description": "A comprehensive study companion for the NY Court Officer exam. Features interactive flashcards, memory & recall practice, reading comprehension, grammar assessments, and situational judgment scenarios."
+    },
+    "tennis": {
+      "title": "Tennis Score Keeper",
+      "description": "Track tennis matches with sets, games, and points. Features tiebreak support, match history, court mode, and automatic scoring. Perfect for players, coaches, and fans."
+    },
+    "publicSpeaking": {
+      "title": "Public Speaking Academy",
+      "description": "Master public speaking through 12 comprehensive modules and 180+ expert-crafted cards. Learn voice mechanics, breathing techniques, storytelling, and confident communication."
+    },
+    "musicSheet": {
+      "title": "Music Sheet Learn",
+      "description": "Master reading music notation! Learn treble and bass clefs with interactive lessons, visual guides, and piano keyboard connections. Perfect for beginners and musicians."
+    },
+    "guardCard": {
+      "title": "Guard Card California",
+      "description": "Complete guide for California security guard certification. Find training centers, LiveScan locations, study materials, practice quizzes, and official BSIS resources."
+    },
+    "dateGenie": {
+      "title": "DateGenie",
+      "description": "Discover 72 curated date ideas with scratch-off surprises. Browse by romantic, adventurous, budget-friendly, or luxury experiences. Perfect for couples planning unforgettable moments."
+    },
+    "asisCpp": {
+      "title": "ASIS CPP Exam Prep & Flashcard",
+      "description": "Master the ASIS CPP exam with 1,000+ flashcards aligned with exam topics. Organized by chapters covering Security Principles, Risk Management, Legal, and Investigations. Track progress and focus on weak areas."
+    },
+    "quickDraw": {
+      "title": "Quick Draw :)",
+      "description": "Draw fast, guess faster. A quick party game for everyone. Quick Draw is a fast, fun drawing-and-guessing party game. Draw a word, let friends guess, and rotate turns across multiple rounds. Great for quick matches and friendly competition."
+    }
   },
   "cta": {
     "title": "Ready to Transform Your Business?",
