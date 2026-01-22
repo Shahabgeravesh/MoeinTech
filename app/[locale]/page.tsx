@@ -57,6 +57,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     guardCard: await getAppIcon('6751480977'),
     dateGenie: await getAppIcon('6749169858'),
     asisCpp: await getAppIcon('6741053163'),
+    quickDraw: await getAppIcon('6757971448'),
   };
 
   return (
@@ -281,7 +282,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Court Officer Flashcards App */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.courtOfficer ? (
                     <Image 
                       src={appIcons.courtOfficer} 
@@ -324,7 +325,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* Tennis Score Keeper */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.tennis ? (
                     <Image 
                       src={appIcons.tennis} 
@@ -367,7 +368,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* Public Speaking Academy */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.publicSpeaking ? (
                     <Image 
                       src={appIcons.publicSpeaking} 
@@ -410,7 +411,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* Music Sheet Learn */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-emerald-50 to-green-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.musicSheet ? (
                     <Image 
                       src={appIcons.musicSheet} 
@@ -453,7 +454,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* Guard Card California */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.guardCard ? (
                     <Image 
                       src={appIcons.guardCard} 
@@ -496,7 +497,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* DateGenie */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-red-50 to-pink-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.dateGenie ? (
                     <Image 
                       src={appIcons.dateGenie} 
@@ -539,7 +540,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
               {/* ASIS CPP Exam Prep & Flashcard */}
               <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-yellow-300 hover:shadow-lg transition-all group">
-                <div className="w-full h-48 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-lg mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
                   {appIcons.asisCpp ? (
                     <Image 
                       src={appIcons.asisCpp} 
@@ -571,6 +572,49 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-yellow-600 hover:text-yellow-700 font-medium flex items-center gap-1"
+                  >
+                    {t('projects.viewProject')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Quick Draw */}
+              <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-cyan-300 hover:shadow-lg transition-all group">
+                <div className="w-full h-48 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                  {appIcons.quickDraw ? (
+                    <Image 
+                      src={appIcons.quickDraw} 
+                      alt="Quick Draw"
+                      width={192}
+                      height={192}
+                      className="rounded-2xl shadow-lg"
+                    />
+                  ) : (
+                    <svg className="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                  )}
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-cyan-600 transition-colors">
+                  Quick Draw :)
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Draw fast, guess faster. A quick party game for everyone. Quick Draw is a fast, fun drawing-and-guessing party game. Draw a word, let friends guess, and rotate turns across multiple rounds. Great for quick matches and friendly competition.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs font-medium text-cyan-600 bg-cyan-50 rounded">React Native</span>
+                  <span className="px-2 py-1 text-xs font-medium text-cyan-600 bg-cyan-50 rounded">iPad</span>
+                  <span className="px-2 py-1 text-xs font-medium text-cyan-600 bg-cyan-50 rounded">Board Game</span>
+                </div>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://apps.apple.com/us/app/quick-draw/id6757971448" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-cyan-600 hover:text-cyan-700 font-medium flex items-center gap-1"
                   >
                     {t('projects.viewProject')}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
