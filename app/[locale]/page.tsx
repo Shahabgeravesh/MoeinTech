@@ -321,9 +321,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
               <Link
                 href={`/${locale}#contact`}
-                className="ml-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all rounded-md shadow-sm"
+                className="ml-2 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transition-all rounded-lg shadow-md hover:shadow-lg"
               >
-                {t('nav.getStarted')}
+                {t('hero.ctaPrimary')}
               </Link>
             </div>
             <div className="md:hidden flex items-center space-x-2">
@@ -821,7 +821,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex justify-center items-center min-h-[200px]">
               {/* Placeholder for future case studies */}
               <div className="bg-white p-8 rounded-xl border border-gray-200 text-center">
                 <p className="text-gray-500">Case studies coming soon</p>
