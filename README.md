@@ -116,6 +116,20 @@ The website is ready to deploy on platforms like:
 
 Make sure to set up environment variables if needed and configure your domain's DNS settings.
 
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Calendly URL for scheduling calls (optional)
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username/meeting
+
+# Formspree endpoint for contact form submissions
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/your-form-id
+```
+
+**Note**: If `NEXT_PUBLIC_CALENDLY_URL` is not set, the "Schedule a Call" button will fall back to the contact form.
+
 ## Technologies
 
 - **Next.js 14** - React framework

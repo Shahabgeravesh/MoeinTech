@@ -2,50 +2,100 @@
   "nav": {
     "home": "Home",
     "services": "Services",
-    "about": "About",
-    "projects": "Projects",
+    "industries": "Industries",
+    "caseStudies": "Case Studies",
+    "about": "About the Team",
     "contact": "Contact",
-    "getStarted": "Get Started"
+    "getStarted": "Get in Touch"
   },
   "hero": {
-    "title": "Transform Your Business with Cutting-Edge Technology",
-    "subtitle": "Leading technology solutions powered by innovation, expertise, and excellence. Under the leadership of Dr. Moein, we deliver world-class digital transformation services.",
-    "ctaPrimary": "Explore Services",
-    "ctaSecondary": "Contact Us"
+    "servicesBadge": "Mobile / Web / Marketing / AI / Consulting",
+    "title": "We Build & Market Mobile Apps That Grow Your Business",
+    "subtitle": "Turn your app idea into reality. We create beautiful mobile apps and help you get customers. From start to finish, we make it simple and affordable.",
+    "ctaPrimary": "Get in Touch",
+    "ctaSecondary": "Schedule a Call"
+  },
+  "why": {
+    "title": "Why Choose MoeinTech?",
+    "description": "We make great mobile apps and help you find customers. Our process is simple: we build quality apps at fair prices, then use smart marketing to bring the right people to your app. No complicated tech talk—just results."
+  },
+  "technologies": {
+    "title": "Built with the Best Technology",
+    "subtitle": "We use top tools and platforms to make your app fast, secure, and reliable"
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive technology solutions to accelerate your business growth",
+    "title": "Services We Offer",
+    "subtitle": "Complete solutions to grow your business with technology",
     "appDevelopment": {
-      "title": "App & Website Development",
-      "description": "Custom mobile applications and responsive websites built with the latest technologies. From concept to deployment, we create scalable, high-performance digital solutions."
+      "title": "App Development",
+      "description": "We turn your idea into a real mobile app. From design to launch, we handle everything. You get a beautiful, working app that your customers will love—all at a fair price."
     },
-    "seoMarketing": {
-      "title": "SEO & Marketing",
-      "description": "Strategic digital marketing and SEO optimization to increase your online visibility, drive traffic, and convert leads into customers. Data-driven strategies that deliver results."
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "We build fast, modern websites that work perfectly on all devices. Your business needs a great website, and we make it happen with beautiful design and smooth performance."
     },
-    "ai": {
-      "title": "AI Capabilities",
-      "description": "Leverage the power of artificial intelligence and machine learning to automate processes, gain insights, and create intelligent solutions that give your business a competitive edge."
+    "marketing": {
+      "title": "Marketing",
+      "description": "We help people find and download your app or visit your website. Using smart strategies, we bring the right customers to you. More visitors means more business for you."
     },
     "consulting": {
       "title": "Business Consulting",
-      "description": "Expert technology consulting to help you make informed decisions, optimize operations, and align your IT strategy with your business objectives for sustainable growth."
+      "description": "Get expert advice on how to grow your business with technology. We help you make smart decisions about apps, websites, and digital strategies that work for your business."
+    },
+    "ai": {
+      "title": "AI Solutions",
+      "description": "Use the power of artificial intelligence to make your business smarter. From chatbots to automation, we help you save time and serve customers better with AI technology."
     }
   },
   "about": {
-    "title": "About MoeinTech",
-    "subtitle": "Leadership & Excellence",
-    "description": "MoeinTech is a leading technology company dedicated to delivering innovative solutions that drive business success. Under the visionary leadership of Dr. Moein, we combine technical expertise with strategic insights to help businesses thrive in the digital age.",
+    "title": "About the Team",
+    "subtitle": "Meet the experts behind MoeinTech",
+    "description": "MoeinTech is led by a team of experienced professionals dedicated to building and marketing exceptional mobile applications. Under the leadership of Dr. Moein, we combine technical expertise with strategic marketing insights to help apps succeed in competitive markets.",
     "drMoeen": {
       "title": "Dr. Moein",
       "role": "Founder & Technology Leader",
       "bio": "With extensive experience in technology and business innovation, Dr. Moein leads MoeinTech with a commitment to excellence and a passion for transforming businesses through cutting-edge solutions."
     }
   },
+  "industries": {
+    "title": "We've Built Apps For Many Industries",
+    "subtitle": "No matter what business you're in, we can help you create an app that works.",
+    "education": {
+      "title": "Education",
+      "description": "Learning apps that help students study better. From test prep to skill-building, we make apps that help people learn and succeed."
+    },
+    "sports": {
+      "title": "Sports & Fitness",
+      "description": "Apps for athletes and fitness lovers. Track scores, plan workouts, and connect with your community. We help people reach their fitness goals."
+    },
+    "lifestyle": {
+      "title": "Lifestyle",
+      "description": "Apps that make daily life better. From dating to organizing your day, we build apps that connect people and improve their routines."
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "description": "Safe and secure health apps. From video doctor visits to tracking your health, we make healthcare easier to access for everyone."
+    },
+    "finance": {
+      "title": "Finance",
+      "description": "Secure money apps. Help people manage their money, invest smart, and use banking services. We build trusted apps with strong security."
+    },
+    "entertainment": {
+      "title": "Entertainment",
+      "description": "Fun apps that people love. From games to streaming, we create apps that keep users entertained and coming back for more."
+    },
+    "productivity": {
+      "title": "Productivity",
+      "description": "Apps that help teams work together and people stay organized. From to-do lists to team chat, we build apps that make work easier."
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "description": "Shopping apps that sell more. From browsing products to easy checkout, we create apps that turn visitors into customers."
+    }
+  },
   "projects": {
-    "title": "Featured Projects",
-    "subtitle": "Showcasing our expertise through successful implementations",
+    "title": "Case Studies",
+    "subtitle": "Explore our portfolio of successful app launches and marketing campaigns.",
     "viewProject": "View Project",
     "viewCode": "View Code",
     "liveDemo": "Live Demo",
@@ -83,9 +133,11 @@
     }
   },
   "cta": {
-    "title": "Ready to Transform Your Business?",
-    "subtitle": "Submit an inquiry and we'll get back to you to discuss how our technology solutions can accelerate your growth.",
-    "button": "Schedule a Consultation"
+    "title": "Ready to Start?",
+    "subtitle": "Let's talk about your app idea. We'll help you understand the process, answer your questions, and create a plan that works for your business. Get started today and see your app come to life.",
+    "button": "Get Started Now",
+    "scheduleButton": "Schedule a Call",
+    "formButton": "Submit Inquiry Form"
   },
   "form": {
     "name": "Name",
@@ -103,23 +155,26 @@
     "success": "Thank you! Your inquiry has been submitted successfully. We'll get back to you soon.",
     "error": "Something went wrong. Please try again later.",
     "serviceOptions": {
-      "appDevelopment": "App & Website Development",
-      "seoMarketing": "SEO & Marketing",
-      "ai": "AI Capabilities",
+      "appDevelopment": "App Development",
+      "webDevelopment": "Web Development",
+      "marketing": "Marketing",
       "consulting": "Business Consulting",
+      "ai": "AI Solutions",
       "other": "Other"
     }
   },
   "footer": {
-    "description": "Leading technology solutions for the digital age.",
+    "description": "App Development & App Marketing Agency",
     "company": "Company",
     "services": "Services",
-    "resources": "Resources",
-    "connect": "Connect",
-    "about": "About",
-    "contact": "Contact",
+    "caseStudies": "Case Studies",
     "blog": "Blog",
-    "support": "Support",
+    "privacy": "Privacy Policy",
+    "connect": "Follow Us",
+    "about": "About the Team",
+    "contact": "Contact",
+    "newsletter": "Our Newsletter",
+    "subscribe": "Subscribe!",
     "rights": "All rights reserved."
   }
 }

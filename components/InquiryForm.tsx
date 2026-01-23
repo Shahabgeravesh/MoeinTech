@@ -106,10 +106,11 @@ export default function InquiryForm() {
             className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
           >
             <option value="">{t('servicePlaceholder')}</option>
-            <option value="app-development">{t('serviceOptions.appDevelopment')}</option>
-            <option value="seo-marketing">{t('serviceOptions.seoMarketing')}</option>
-            <option value="ai">{t('serviceOptions.ai')}</option>
+            <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>
+            <option value="webDevelopment">{t('serviceOptions.webDevelopment')}</option>
+            <option value="marketing">{t('serviceOptions.marketing')}</option>
             <option value="consulting">{t('serviceOptions.consulting')}</option>
+            <option value="ai">{t('serviceOptions.ai')}</option>
             <option value="other">{t('serviceOptions.other')}</option>
           </select>
         </div>
