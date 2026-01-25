@@ -402,9 +402,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="mb-8 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight">
-                {t('services.title')}
-              </h2>
+              {t('services.title') && (
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight">
+                  {t('services.title')}
+                </h2>
+              )}
               <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium">
                 {t('services.subtitle')}
               </p>
