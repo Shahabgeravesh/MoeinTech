@@ -35,7 +35,7 @@ export default function TechLogoImage({ src, alt, fallbackSrc, simpleIconsSlug }
       alt={alt}
       dir="ltr"
       className="w-full h-full object-contain"
-      style={{ maxWidth: '96px', maxHeight: '96px', filter: 'none', direction: 'ltr' }}
+      style={{ maxWidth: '112px', maxHeight: '112px', filter: 'none', direction: 'ltr' }}
       loading="lazy"
       onError={handleError}
     />

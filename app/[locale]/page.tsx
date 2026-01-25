@@ -112,14 +112,14 @@ function IndustryCard({
   );
 }
 
-// Tech Logo Component
+// Tech Logo Component – bold names, main logos/colors, identical EN/FA (dir="ltr")
 function TechLogo({ name, color, icon }: { name: string; color: string; icon: string }) {
   return (
-    <div className="group flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[160px]">
-      <div className="w-24 h-24 mb-4 flex items-center justify-center">
+    <div className="group flex flex-col items-center justify-center p-5 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[160px]" dir="ltr">
+      <div className="w-28 h-28 mb-3 flex items-center justify-center">
         <TechIcon icon={icon} name={name} />
       </div>
-      <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors text-center">{name}</span>
+      <span className="text-base font-bold text-gray-900 group-hover:text-gray-700 transition-colors text-center tracking-tight">{name}</span>
     </div>
   );
 }
@@ -147,21 +147,19 @@ function AppLogo({ name, iconUrl }: { name: string; iconUrl: string | null }) {
 
 // Tech Icon Component - Using authentic company logos
 function TechIcon({ icon, name }: { icon: string; name: string }) {
-  // Map icon names to local asset filenames (from public/assets/)
+  // Local overrides (optional) – from public/assets/
   const localLogoMap: Record<string, string> = {
-    openai: '/assets/Chatgpt.jpeg',
     aws: '/assets/AWS.jpeg',
-    tensorflow: '/assets/Meta AI.jpeg',
   };
   
-  // CDN URLs – same logo for EN and FA. Keys match TechLogo icon prop.
+  // CDN – main logos and brand colors (identical EN/FA). OpenAI & Microsoft use jsdelivr (reliable).
   const cdnLogoMap: Record<string, string> = {
-    openai: 'https://cdn.simpleicons.org/openai/10A37F',
+    openai: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg',
     claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
     gemini: 'https://cdn.simpleicons.org/google/4285F4',
     tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
-    aws: 'https://cdn.simpleicons.org/amazonaws',
-    azure: 'https://cdn.simpleicons.org/microsoftazure',
+    aws: 'https://cdn.simpleicons.org/amazonaws/FF9900',
+    azure: 'https://cdn.simpleicons.org/microsoftazure/0078D4',
     microsoft: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg',
     gcp: 'https://cdn.simpleicons.org/googlecloud/4285F4',
     vercel: 'https://cdn.simpleicons.org/vercel/000000',
@@ -201,13 +199,18 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
   const localLogo = localLogoMap[icon];
   const cdnUrl = cdnLogoMap[icon];
   const slug = iconToSlug[icon] ?? icon;
-  const fallbackUrl = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${slug}.svg`;
+  const jsdelivrUrl = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${slug}.svg`;
+  const simpleiconsUrl = `https://cdn.simpleicons.org/${slug}`;
+  // OpenAI & Microsoft: primary = jsdelivr, fallback = simpleicons (avoids retrying same URL).
+  const useJsdelivrFirst = icon === 'openai' || icon === 'microsoft';
+  const primary = localLogo || (useJsdelivrFirst ? jsdelivrUrl : cdnUrl) || jsdelivrUrl;
+  const fallback = useJsdelivrFirst ? simpleiconsUrl : (cdnUrl || jsdelivrUrl);
 
   return (
     <TechLogoImage
-      src={localLogo || cdnUrl || fallbackUrl}
+      src={primary}
       alt={name}
-      fallbackSrc={cdnUrl || fallbackUrl}
+      fallbackSrc={fallback}
       simpleIconsSlug={slug}
     />
   );
