@@ -61,6 +61,7 @@ body {
   will-change: transform;
   animation-play-state: running;
   gap: 2rem;
+  direction: ltr; /* Always LTR for logos regardless of page direction */
 }
 
 /* Animated blob background */
