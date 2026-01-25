@@ -44,6 +44,77 @@ async function getAppIcon(appId: string): Promise<string | null> {
   return null;
 }
 
+// Industry Card Component - handles both video and icon+text formats
+function IndustryCard({
+  industryKey,
+  title,
+  description,
+  icon,
+  videoPath,
+  colors,
+  colSpan = '',
+}: {
+  industryKey: string;
+  title: string;
+  description?: string;
+  icon?: JSX.Element;
+  videoPath: string | null;
+  colors: { bg: string; border: string; hoverBorder: string; hoverText: string; iconGradient: string; iconHoverText: string; iconHoverBorder: string };
+  colSpan?: string;
+}) {
+  // If video exists, render video card
+  if (videoPath) {
+    return (
+      <div className={`group bg-gradient-to-br ${colors.bg} p-6 md:p-8 rounded-2xl border-2 ${colors.border} ${colors.hoverBorder} hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${colSpan || 'lg:col-span-2'}`}>
+        {/* Animated gradient overlay on hover */}
+        <div className={`absolute inset-0 bg-gradient-to-r ${colors.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+        
+        {/* Title */}
+        <div className="mb-4 md:mb-6 text-center relative z-10">
+          <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-900 ${colors.hoverText} transition-colors drop-shadow-sm`}>
+            {title}
+          </h3>
+        </div>
+        
+        {/* Video */}
+        <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition-all duration-500 ring-4 ring-white/50 group-hover:ring-8">
+          <video
+            className="w-full h-auto rounded-2xl"
+            controls
+            preload="metadata"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={videoPath} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    );
+  }
+
+  // Otherwise, render icon+text card
+  return (
+    <div className={`group bg-white p-6 rounded-xl border border-gray-200 ${colors.iconHoverBorder} hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
+      {icon && (
+        <div className={`w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br ${colors.iconGradient} rounded-xl group-hover:scale-110 transition-transform shadow-lg`}>
+          {icon}
+        </div>
+      )}
+      <h3 className={`text-lg font-semibold mb-3 text-gray-900 ${colors.iconHoverText} transition-colors`}>
+        {title}
+      </h3>
+      {description && (
+        <p className="text-sm text-gray-600 leading-relaxed">
+          {description}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // Tech Logo Component
 function TechLogo({ name, color, icon }: { name: string; color: string; icon: string }) {
   return (
@@ -61,9 +132,6 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
   // Map icon names to local asset filenames (from public/assets/)
   const localLogoMap: Record<string, string> = {
     openai: '/assets/Chatgpt.jpeg',
-    claude: '/assets/Chatgpt.jpeg',
-    gemini: '/assets/Google.jpeg',
-    gcp: '/assets/Google.jpeg',
     aws: '/assets/AWS.jpeg',
     tensorflow: '/assets/Meta AI.jpeg',
     pytorch: '/assets/Meta AI.jpeg',
@@ -78,6 +146,7 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     pytorch: 'https://cdn.simpleicons.org/pytorch/EE4C2C',
     aws: 'https://cdn.simpleicons.org/amazonaws',
     azure: 'https://cdn.simpleicons.org/microsoftazure',
+    microsoft: 'https://cdn.simpleicons.org/microsoft/0078D4',
     gcp: 'https://cdn.simpleicons.org/googlecloud/4285F4',
     vercel: 'https://cdn.simpleicons.org/vercel/000000',
     netlify: 'https://cdn.simpleicons.org/netlify/00C7B7',
@@ -325,6 +394,102 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     quickDraw: await getAppIcon('6757971448'),
   };
 
+  // Map industry categories to video paths (if video exists)
+  const industryVideos: Record<string, string | null> = {
+    entertainment: '/assets/Videos/Entertainment.mp4',
+    education: '/assets/Videos/Education.mp4',
+    sports: null,
+    lifestyle: null,
+    healthcare: null,
+    finance: null,
+    productivity: null,
+    ecommerce: null,
+  };
+
+  // Color schemes for each industry (for video cards and icon cards)
+  const industryColors: Record<string, { 
+    bg: string; 
+    border: string; 
+    hoverBorder: string; 
+    hoverText: string;
+    iconGradient: string;
+    iconHoverText: string;
+    iconHoverBorder: string;
+  }> = {
+    entertainment: {
+      bg: 'from-purple-50 via-indigo-50 to-blue-50',
+      border: 'border-purple-200',
+      hoverBorder: 'hover:border-purple-400',
+      hoverText: 'group-hover:text-purple-600',
+      iconGradient: 'from-purple-500 to-purple-600',
+      iconHoverText: 'group-hover:text-purple-600',
+      iconHoverBorder: 'hover:border-purple-500',
+    },
+    education: {
+      bg: 'from-blue-50 via-cyan-50 to-indigo-50',
+      border: 'border-blue-200',
+      hoverBorder: 'hover:border-blue-400',
+      hoverText: 'group-hover:text-blue-600',
+      iconGradient: 'from-blue-500 to-blue-600',
+      iconHoverText: 'group-hover:text-blue-600',
+      iconHoverBorder: 'hover:border-blue-500',
+    },
+    sports: {
+      bg: 'from-purple-50 via-pink-50 to-rose-50',
+      border: 'border-purple-200',
+      hoverBorder: 'hover:border-purple-400',
+      hoverText: 'group-hover:text-purple-600',
+      iconGradient: 'from-purple-500 to-purple-600',
+      iconHoverText: 'group-hover:text-purple-600',
+      iconHoverBorder: 'hover:border-purple-500',
+    },
+    lifestyle: {
+      bg: 'from-pink-50 via-rose-50 to-orange-50',
+      border: 'border-pink-200',
+      hoverBorder: 'hover:border-pink-400',
+      hoverText: 'group-hover:text-pink-600',
+      iconGradient: 'from-pink-500 to-pink-600',
+      iconHoverText: 'group-hover:text-pink-600',
+      iconHoverBorder: 'hover:border-pink-500',
+    },
+    healthcare: {
+      bg: 'from-green-50 via-emerald-50 to-teal-50',
+      border: 'border-green-200',
+      hoverBorder: 'hover:border-green-400',
+      hoverText: 'group-hover:text-green-600',
+      iconGradient: 'from-green-500 to-green-600',
+      iconHoverText: 'group-hover:text-green-600',
+      iconHoverBorder: 'hover:border-green-500',
+    },
+    finance: {
+      bg: 'from-emerald-50 via-teal-50 to-cyan-50',
+      border: 'border-emerald-200',
+      hoverBorder: 'hover:border-emerald-400',
+      hoverText: 'group-hover:text-emerald-600',
+      iconGradient: 'from-emerald-500 to-emerald-600',
+      iconHoverText: 'group-hover:text-emerald-600',
+      iconHoverBorder: 'hover:border-emerald-500',
+    },
+    productivity: {
+      bg: 'from-indigo-50 via-blue-50 to-purple-50',
+      border: 'border-indigo-200',
+      hoverBorder: 'hover:border-indigo-400',
+      hoverText: 'group-hover:text-indigo-600',
+      iconGradient: 'from-indigo-500 to-indigo-600',
+      iconHoverText: 'group-hover:text-indigo-600',
+      iconHoverBorder: 'hover:border-indigo-500',
+    },
+    ecommerce: {
+      bg: 'from-orange-50 via-amber-50 to-yellow-50',
+      border: 'border-orange-200',
+      hoverBorder: 'hover:border-orange-400',
+      hoverText: 'group-hover:text-orange-600',
+      iconGradient: 'from-orange-500 to-orange-600',
+      iconHoverText: 'group-hover:text-orange-600',
+      iconHoverBorder: 'hover:border-orange-500',
+    },
+  };
+
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
@@ -332,7 +497,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href={`/${locale}`} className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
-              MoeinTech
+              Entertainment
             </Link>
             <div className="hidden md:flex items-center space-x-1">
               <Link 
@@ -561,8 +726,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   
                   {/* Cloud Platforms */}
                   <TechLogo name="AWS" color="orange" icon="aws" />
-                  <TechLogo name="Azure" color="blue" icon="azure" />
                   <TechLogo name="GCP" color="blue" icon="gcp" />
+                  <TechLogo name="Microsoft" color="blue" icon="microsoft" />
                   <TechLogo name="Vercel" color="black" icon="vercel" />
                   <TechLogo name="Netlify" color="teal" icon="netlify" />
                   <TechLogo name="Cloudflare" color="orange" icon="cloudflare" />
@@ -604,8 +769,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   
                   {/* Cloud Platforms */}
                   <TechLogo name="AWS" color="orange" icon="aws" />
-                  <TechLogo name="Azure" color="blue" icon="azure" />
                   <TechLogo name="GCP" color="blue" icon="gcp" />
+                  <TechLogo name="Microsoft" color="blue" icon="microsoft" />
                   <TechLogo name="Vercel" color="black" icon="vercel" />
                   <TechLogo name="Netlify" color="teal" icon="netlify" />
                   <TechLogo name="Cloudflare" color="orange" icon="cloudflare" />
@@ -675,128 +840,110 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Education */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="education"
+                title={t('industries.education.title')}
+                description={industryVideos.education ? undefined : t('industries.education.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
-                  {t('industries.education.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.education.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.education}
+                colors={industryColors.education}
+              />
 
               {/* Sports & Fitness */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="sports"
+                title={t('industries.sports.title')}
+                description={industryVideos.sports ? undefined : t('industries.sports.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">
-                  {t('industries.sports.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.sports.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.sports}
+                colors={industryColors.sports}
+              />
 
               {/* Lifestyle */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-pink-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="lifestyle"
+                title={t('industries.lifestyle.title')}
+                description={industryVideos.lifestyle ? undefined : t('industries.lifestyle.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-pink-600 transition-colors">
-                  {t('industries.lifestyle.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.lifestyle.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.lifestyle}
+                colors={industryColors.lifestyle}
+              />
 
               {/* Healthcare */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-green-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-green-500 to-green-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="healthcare"
+                title={t('industries.healthcare.title')}
+                description={industryVideos.healthcare ? undefined : t('industries.healthcare.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-green-600 transition-colors">
-                  {t('industries.healthcare.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.healthcare.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.healthcare}
+                colors={industryColors.healthcare}
+              />
 
               {/* Finance */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="finance"
+                title={t('industries.finance.title')}
+                description={industryVideos.finance ? undefined : t('industries.finance.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-emerald-600 transition-colors">
-                  {t('industries.finance.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.finance.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.finance}
+                colors={industryColors.finance}
+              />
 
               {/* Entertainment */}
-              <div className="group bg-gradient-to-br from-red-50 to-pink-50 p-8 rounded-2xl border-2 border-red-200 hover:border-red-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 col-span-full">
-                {/* Video */}
-                <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-                  <video
-                    className="w-full h-auto rounded-2xl"
-                    controls
-                    preload="metadata"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src="/assets/entertainment/6007928_Woman_People_1280x720.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
+              <IndustryCard
+                industryKey="entertainment"
+                title={t('industries.entertainment.title')}
+                videoPath={industryVideos.entertainment}
+                colors={industryColors.entertainment}
+              />
 
               {/* Productivity */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-indigo-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="productivity"
+                title={t('industries.productivity.title')}
+                description={industryVideos.productivity ? undefined : t('industries.productivity.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  {t('industries.productivity.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.productivity.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.productivity}
+                colors={industryColors.productivity}
+              />
 
               {/* E-Commerce */}
-              <div className="group bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
+              <IndustryCard
+                industryKey="ecommerce"
+                title={t('industries.ecommerce.title')}
+                description={industryVideos.ecommerce ? undefined : t('industries.ecommerce.description')}
+                icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
-                  {t('industries.ecommerce.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {t('industries.ecommerce.description')}
-                </p>
-              </div>
+                }
+                videoPath={industryVideos.ecommerce}
+                colors={industryColors.ecommerce}
+              />
             </div>
           </div>
         </div>
@@ -880,7 +1027,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">MoeinTech</div>
+              <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">Entertainment</div>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {t('footer.description')}
               </p>
@@ -945,7 +1092,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
           <div className="border-t border-gray-100 pt-8 text-center">
-            <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}</p>
+            <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Entertainment. {t('footer.rights')}</p>
           </div>
         </div>
       </footer>
