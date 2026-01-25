@@ -425,12 +425,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const industryVideos: Record<string, string | null> = {
     entertainment: '/assets/Videos/Entertainment.mp4',
     education: '/assets/Videos/Education.mp4',
-    sports: null,
-    lifestyle: null,
+    sports: '/assets/Videos/Sports and Fitness.mp4',
+    lifestyle: '/assets/Videos/Dating.mp4',
     healthcare: null,
     finance: null,
     productivity: null,
-    ecommerce: null,
+    ecommerce: '/assets/Videos/ecommerce.mp4',
   };
 
   // Color schemes for each industry (for video cards and icon cards)
@@ -580,37 +580,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="mb-10 text-center">
-              <div className={`inline-flex items-center gap-3 md:gap-5 px-8 md:px-10 py-4 md:py-5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group overflow-hidden relative ${locale === 'fa' ? 'font-[Tahoma, Arial, sans-serif]' : ''}`}>
+              <div className="inline-flex items-center gap-3 md:gap-5 px-8 md:px-10 py-4 md:py-5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group overflow-hidden relative">
                 {/* Subtle animated gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {locale === 'fa' ? (
-                  <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 via-purple-600 to-orange-600 to-emerald-600 bg-clip-text text-transparent">
-                    {t('hero.servicesBadge')}
-                  </span>
-                ) : (
-                  <>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-blue-600 transition-all duration-300">
-                      Mobile
-                    </span>
-                    <span className="text-gray-300 font-light text-base">/</span>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent group-hover:from-indigo-500 group-hover:to-indigo-600 transition-all duration-300">
-                      Web
-                    </span>
-                    <span className="text-gray-300 font-light text-base">/</span>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-purple-600 to-purple-700 bg-clip-text text-transparent group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                      Marketing
-                    </span>
-                    <span className="text-gray-300 font-light text-base">/</span>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent group-hover:from-indigo-500 group-hover:to-indigo-600 transition-all duration-300">
-                      AI
-                    </span>
-                    <span className="text-gray-300 font-light text-base">/</span>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-emerald-600 to-emerald-700 bg-clip-text text-transparent group-hover:from-emerald-500 group-hover:to-emerald-600 transition-all duration-300">
-                      Consulting
-                    </span>
-                  </>
-                )}
+                <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:via-purple-500 transition-all duration-300">
+                  {t('hero.servicesBadge')}
+                </span>
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight">
@@ -647,85 +622,94 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </p>
             </div>
 
-            {/* Services Grid - Uniform Layout */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Services Grid - 2x2 Layout with 50/50 Image/Text Split */}
+            <div className="grid md:grid-cols-2 gap-6">
               {/* App Development */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+                <div className="flex h-full">
+                  {/* Image/Icon - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-6 group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  {/* Text - 50% */}
+                  <div className="w-1/2 p-6 flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {t('services.appDevelopment.title')}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {t('services.appDevelopment.description')}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
-                  {t('services.appDevelopment.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  {t('services.appDevelopment.description')}
-                </p>
               </div>
 
               {/* Web Development */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+                <div className="flex h-full">
+                  {/* Image/Icon - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 p-6 group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                  </div>
+                  {/* Text - 50% */}
+                  <div className="w-1/2 p-6 flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                      {t('services.webDevelopment.title')}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {t('services.webDevelopment.description')}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  {t('services.webDevelopment.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  {t('services.webDevelopment.description')}
-                </p>
               </div>
 
-              {/* Marketing */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
+              {/* Marketing & Consulting */}
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+                <div className="flex h-full">
+                  {/* Image/Icon - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600 p-6 group-hover:scale-105 transition-transform duration-300">
+                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  {/* Text - 50% */}
+                  <div className="w-1/2 p-6 flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">
+                      {t('services.marketingConsulting.title')}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {t('services.marketingConsulting.description')}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">
-                  {t('services.marketing.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  {t('services.marketing.description')}
-                </p>
-              </div>
-
-              {/* Business Consulting */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-emerald-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-600 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-emerald-600 transition-colors">
-                  {t('services.consulting.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  {t('services.consulting.description')}
-                </p>
               </div>
 
               {/* AI Solutions */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-white rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg p-2">
-                  <Image 
-                    src="/assets/logos/AI.jpeg" 
-                    alt="AI" 
-                    width={56} 
-                    height={56} 
-                    className="object-contain rounded-lg w-full h-full"
-                  />
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+                <div className="flex h-full">
+                  {/* Image - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-white p-6 group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src="/assets/logos/AI.jpeg" 
+                      alt="AI" 
+                      width={120} 
+                      height={120} 
+                      className="object-contain rounded-lg"
+                    />
+                  </div>
+                  {/* Text - 50% */}
+                  <div className="w-1/2 p-6 flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                      {t('services.ai.title')}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {t('services.ai.description')}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  {t('services.ai.title')}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  {t('services.ai.description')}
-                </p>
               </div>
             </div>
           </div>
@@ -986,9 +970,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 tracking-tight">
                 {t('appsWeBuilt.title')}
               </h2>
-              <p className="text-base text-gray-600 max-w-2xl mx-auto">
-                {t('appsWeBuilt.subtitle')}
-              </p>
+              {t('appsWeBuilt.subtitle') && (
+                <p className="text-base text-gray-600 max-w-2xl mx-auto">
+                  {t('appsWeBuilt.subtitle')}
+                </p>
+              )}
             </div>
             
             <div className="relative overflow-hidden w-full" dir="ltr">
@@ -1050,11 +1036,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
                     <div className="text-3xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">100+</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{locale === 'fa' ? 'پروژه موفق' : 'Successful Projects'}</div>
+                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.successfulProjects')}</div>
                   </div>
                   <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
                     <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">10+</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{locale === 'fa' ? 'سال تجربه' : 'Years Experience'}</div>
+                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperience')}</div>
                   </div>
                 </div>
               </div>
@@ -1092,7 +1078,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* Footer */}
       <footer className="border-t border-gray-100 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
             <div>
               <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">MoeinTech</div>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -1128,34 +1114,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   </a>
                 </li>
               </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.newsletter')}</h4>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder={locale === 'fa' ? 'ایمیل شما' : 'Your email'}
-                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors">
-                  {t('footer.subscribe')}
-                </button>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.connect')}</h4>
-              <div className="flex space-x-3">
-                <a href="#" className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-all">
-                  <svg className="w-4 h-4 text-gray-600 hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
-                <a href="#" className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-all">
-                  <svg className="w-4 h-4 text-gray-600 hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
             </div>
           </div>
           <div className="border-t border-gray-100 pt-8 text-center">

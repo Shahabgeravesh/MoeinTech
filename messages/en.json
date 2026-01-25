@@ -42,6 +42,10 @@
       "title": "Business Consulting",
       "description": "Get expert advice on how to grow your business with technology. We help you make smart decisions about apps, websites, and digital strategies that work for your business."
     },
+    "marketingConsulting": {
+      "title": "Marketing & Consulting",
+      "description": "We help people find and download your app or visit your website. Using smart strategies, we bring the right customers to you. Get expert advice on how to grow your business with technology and make smart decisions about apps, websites, and digital strategies."
+    },
     "ai": {
       "title": "AI Solutions",
       "description": "Use the power of artificial intelligence to make your business smarter. From chatbots to automation, we help you save time and serve customers better with AI technology."
@@ -50,6 +54,8 @@
   "about": {
     "title": "About the Team",
     "subtitle": "Meet the experts behind MoeinTech",
+    "successfulProjects": "Successful Projects",
+    "yearsExperience": "Years Experience",
     "description": "MoeinTech is led by a team of experienced professionals dedicated to building and marketing exceptional mobile applications. Under the leadership of Dr. Moein, we combine technical expertise with strategic marketing insights to help apps succeed in competitive markets.",
     "drMoeen": {
       "title": "Dr. Moein",
@@ -95,7 +101,7 @@
   },
   "appsWeBuilt": {
     "title": "Apps We've Built",
-    "subtitle": "Some of the apps we've created for our clients."
+    "subtitle": ""
   },
   "projects": {
     "title": "Case Studies",
