@@ -12,6 +12,16 @@ const nextConfig = {
         hostname: 'is*.mzstatic.com',
         pathname: '/image/thumb/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+        pathname: '/**',
+      },
     ],
   },
 };

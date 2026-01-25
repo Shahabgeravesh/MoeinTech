@@ -44,7 +44,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Infinite scroll animation */
+/* Infinite scroll animation - seamless and never stops */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -55,9 +55,12 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 60s linear infinite;
+  animation: scroll 25s linear infinite;
   display: flex;
   width: max-content;
+  will-change: transform;
+  animation-play-state: running;
+  gap: 2rem;
 }
 
 /* Animated blob background */

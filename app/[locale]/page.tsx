@@ -45,35 +45,66 @@ async function getAppIcon(appId: string): Promise<string | null> {
 
 // Tech Logo Component
 function TechLogo({ name, color, icon }: { name: string; color: string; icon: string }) {
-  const getColorClasses = (col: string) => {
-    switch(col) {
-      case 'green': return 'hover:border-green-500 hover:text-green-600 bg-gradient-to-br from-green-400 to-emerald-600';
-      case 'purple': return 'hover:border-purple-500 hover:text-purple-600 bg-gradient-to-br from-purple-400 to-purple-600';
-      case 'blue': return 'hover:border-blue-500 hover:text-blue-600 bg-gradient-to-br from-blue-400 to-blue-600';
-      case 'orange': return 'hover:border-orange-500 hover:text-orange-600 bg-gradient-to-br from-orange-400 to-orange-600';
-      case 'red': return 'hover:border-red-500 hover:text-red-600 bg-gradient-to-br from-red-400 to-red-600';
-      case 'yellow': return 'hover:border-yellow-500 hover:text-yellow-600 bg-gradient-to-br from-yellow-400 to-yellow-600';
-      case 'black': return 'hover:border-gray-800 hover:text-gray-800 bg-gradient-to-br from-gray-700 to-gray-900';
-      case 'teal': return 'hover:border-teal-500 hover:text-teal-600 bg-gradient-to-br from-teal-400 to-teal-600';
-      default: return 'hover:border-blue-500 hover:text-blue-600 bg-gradient-to-br from-blue-400 to-blue-600';
-    }
-  };
-
-  const bgClass = getColorClasses(color);
-
   return (
-    <div className="group flex flex-col items-center justify-center p-4 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white min-w-[140px]">
-      <div className="w-16 h-16 mb-3 flex items-center justify-center relative">
-        <div className={`absolute inset-0 ${bgClass} rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-        <TechIcon icon={icon} />
+    <div className="group flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[160px]">
+      <div className="w-24 h-24 mb-4 flex items-center justify-center">
+        <TechIcon icon={icon} name={name} />
       </div>
-      <span className="text-xs font-semibold text-gray-700 group-hover:text-gray-900 transition-colors text-center">{name}</span>
+      <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors text-center">{name}</span>
     </div>
   );
 }
 
-// Tech Icon Component
-function TechIcon({ icon }: { icon: string }) {
+// Tech Icon Component - Using authentic company logos
+function TechIcon({ icon, name }: { icon: string; name: string }) {
+  // Map icon names to Simple Icons CDN URLs with authentic brand colors
+  // Using the colored version from simpleicons.org CDN which preserves brand colors
+  const logoMap: Record<string, string> = {
+    openai: 'https://cdn.simpleicons.org/openai/10A37F',
+    claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
+    gemini: 'https://cdn.simpleicons.org/google/4285F4',
+    tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
+    pytorch: 'https://cdn.simpleicons.org/pytorch/EE4C2C',
+    aws: 'https://cdn.simpleicons.org/amazonaws/FF9900',
+    azure: 'https://cdn.simpleicons.org/microsoftazure/0078D4',
+    gcp: 'https://cdn.simpleicons.org/googlecloud/4285F4',
+    vercel: 'https://cdn.simpleicons.org/vercel/000000',
+    netlify: 'https://cdn.simpleicons.org/netlify/00C7B7',
+    cloudflare: 'https://cdn.simpleicons.org/cloudflare/F38020',
+    mongodb: 'https://cdn.simpleicons.org/mongodb/47A248',
+    postgresql: 'https://cdn.simpleicons.org/postgresql/336791',
+    redis: 'https://cdn.simpleicons.org/redis/DC382D',
+    firebase: 'https://cdn.simpleicons.org/firebase/FFCA28',
+    supabase: 'https://cdn.simpleicons.org/supabase/3ECF8E',
+    react: 'https://cdn.simpleicons.org/react/61DAFB',
+    nextjs: 'https://cdn.simpleicons.org/nextdotjs/000000',
+    flutter: 'https://cdn.simpleicons.org/flutter/02569B',
+    typescript: 'https://cdn.simpleicons.org/typescript/3178C6',
+    nodejs: 'https://cdn.simpleicons.org/nodedotjs/339933',
+    python: 'https://cdn.simpleicons.org/python/3776AB',
+    go: 'https://cdn.simpleicons.org/go/00ADD8',
+    docker: 'https://cdn.simpleicons.org/docker/2496ED',
+    kubernetes: 'https://cdn.simpleicons.org/kubernetes/326CE5',
+    stripe: 'https://cdn.simpleicons.org/stripe/635BFF',
+    github: 'https://cdn.simpleicons.org/github/181717',
+    gitlab: 'https://cdn.simpleicons.org/gitlab/FC6D26',
+    figma: 'https://cdn.simpleicons.org/figma/F24E1E',
+  };
+
+  const logoUrl = logoMap[icon];
+
+  if (logoUrl) {
+    return (
+      <img
+        src={logoUrl}
+        alt={name}
+        className="w-full h-full object-contain"
+        style={{ maxWidth: '96px', maxHeight: '96px', filter: 'none' }}
+      />
+    );
+  }
+
+  // Fallback for unknown icons
   const icons: Record<string, JSX.Element> = {
     openai: (
       <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -260,7 +291,7 @@ function TechIcon({ icon }: { icon: string }) {
 
   return icons[icon] || (
     <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
-      <span className="text-xs text-gray-500">{icon}</span>
+      <span className="text-xs text-gray-500">{name || icon}</span>
     </div>
   );
 }
@@ -507,15 +538,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             
             {/* Infinite Scrolling Container */}
-            <div className="relative overflow-hidden">
-              <div className="flex">
-                {/* First set of logos */}
-                <div className="flex animate-scroll gap-8 items-center flex-shrink-0">
+            <div className="relative overflow-hidden w-full">
+              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }}>
                   {/* AI Platforms */}
                   <TechLogo name="OpenAI" color="green" icon="openai" />
                   <TechLogo name="Claude" color="purple" icon="claude" />
                   <TechLogo name="Gemini" color="blue" icon="gemini" />
-                  <TechLogo name="Hugging Face" color="yellow" icon="huggingface" />
                   <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
                   <TechLogo name="PyTorch" color="red" icon="pytorch" />
                   
@@ -553,15 +581,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <TechLogo name="GitHub" color="black" icon="github" />
                   <TechLogo name="GitLab" color="orange" icon="gitlab" />
                   <TechLogo name="Figma" color="purple" icon="figma" />
-                </div>
-                
-                {/* Duplicate set for seamless loop */}
-                <div className="flex animate-scroll gap-8 items-center flex-shrink-0" aria-hidden="true">
+                  
+                  {/* Duplicate set for seamless loop - no gap */}
                   {/* AI Platforms */}
                   <TechLogo name="OpenAI" color="green" icon="openai" />
                   <TechLogo name="Claude" color="purple" icon="claude" />
                   <TechLogo name="Gemini" color="blue" icon="gemini" />
-                  <TechLogo name="Hugging Face" color="yellow" icon="huggingface" />
                   <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
                   <TechLogo name="PyTorch" color="red" icon="pytorch" />
                   
@@ -599,7 +624,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <TechLogo name="GitHub" color="black" icon="github" />
                   <TechLogo name="GitLab" color="orange" icon="gitlab" />
                   <TechLogo name="Figma" color="purple" icon="figma" />
-                </div>
               </div>
             </div>
           </div>
