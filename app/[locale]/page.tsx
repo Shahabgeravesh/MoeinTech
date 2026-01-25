@@ -65,21 +65,18 @@ function IndustryCard({
   // If video exists, render video card
   if (videoPath) {
     return (
-      <div className={`group bg-gradient-to-br ${colors.bg} p-6 md:p-8 rounded-2xl border-2 ${colors.border} ${colors.hoverBorder} hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${colSpan || 'lg:col-span-2'}`}>
-        {/* Animated gradient overlay on hover */}
-        <div className={`absolute inset-0 bg-gradient-to-r ${colors.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
-        
+      <div className={`group bg-white p-6 md:p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden ${colSpan || 'lg:col-span-2'}`}>
         {/* Title */}
-        <div className="mb-4 md:mb-6 text-center relative z-10">
-          <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-900 ${colors.hoverText} transition-colors drop-shadow-sm`}>
+        <div className="mb-4 md:mb-6 text-center">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-900 transition-colors">
             {title}
           </h3>
         </div>
         
         {/* Video */}
-        <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition-all duration-500 ring-4 ring-white/50 group-hover:ring-8">
+        <div className="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-all duration-300">
           <video
-            className="w-full h-auto rounded-2xl"
+            className="w-full h-auto rounded-xl"
             controls
             preload="metadata"
             autoPlay
@@ -127,6 +124,27 @@ function TechLogo({ name, color, icon }: { name: string; color: string; icon: st
   );
 }
 
+// App Logo Component – app icons from iTunes (logos only, no names)
+function AppLogo({ name, iconUrl }: { name: string; iconUrl: string | null }) {
+  return (
+    <div className="group flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[120px]">
+      <div className="w-24 h-24 flex items-center justify-center rounded-2xl overflow-hidden bg-gray-100">
+        {iconUrl ? (
+          <img
+            src={iconUrl}
+            alt={name}
+            className="w-full h-full object-contain"
+            style={{ maxWidth: '96px', maxHeight: '96px' }}
+            loading="lazy"
+          />
+        ) : (
+          <span className="text-3xl font-bold text-gray-400">{name.charAt(0)}</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // Tech Icon Component - Using authentic company logos
 function TechIcon({ icon, name }: { icon: string; name: string }) {
   // Map icon names to local asset filenames (from public/assets/)
@@ -134,19 +152,17 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     openai: '/assets/Chatgpt.jpeg',
     aws: '/assets/AWS.jpeg',
     tensorflow: '/assets/Meta AI.jpeg',
-    pytorch: '/assets/Meta AI.jpeg',
   };
   
-  // CDN fallback URLs with authentic brand colors
+  // CDN URLs – same logo for EN and FA. Keys match TechLogo icon prop.
   const cdnLogoMap: Record<string, string> = {
     openai: 'https://cdn.simpleicons.org/openai/10A37F',
     claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
     gemini: 'https://cdn.simpleicons.org/google/4285F4',
     tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
-    pytorch: 'https://cdn.simpleicons.org/pytorch/EE4C2C',
     aws: 'https://cdn.simpleicons.org/amazonaws',
     azure: 'https://cdn.simpleicons.org/microsoftazure',
-    microsoft: 'https://cdn.simpleicons.org/microsoft/0078D4',
+    microsoft: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg',
     gcp: 'https://cdn.simpleicons.org/googlecloud/4285F4',
     vercel: 'https://cdn.simpleicons.org/vercel/000000',
     netlify: 'https://cdn.simpleicons.org/netlify/00C7B7',
@@ -171,17 +187,28 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     figma: 'https://cdn.simpleicons.org/figma/F24E1E',
   };
 
-  // Use local file if available, otherwise use CDN
+  // Simple Icons slugs for fallbacks (icon key -> slug). Ensures GCP → googlecloud, etc.
+  const iconToSlug: Record<string, string> = {
+    openai: 'openai', claude: 'anthropic', gemini: 'google', tensorflow: 'tensorflow',
+    aws: 'amazonaws', azure: 'microsoftazure', microsoft: 'microsoft', gcp: 'googlecloud',
+    vercel: 'vercel', netlify: 'netlify', cloudflare: 'cloudflare', mongodb: 'mongodb',
+    postgresql: 'postgresql', redis: 'redis', firebase: 'firebase', supabase: 'supabase',
+    react: 'react', nextjs: 'nextdotjs', flutter: 'flutter', typescript: 'typescript',
+    nodejs: 'nodedotjs', python: 'python', go: 'go', docker: 'docker', kubernetes: 'kubernetes',
+    stripe: 'stripe', github: 'github', gitlab: 'gitlab', figma: 'figma',
+  };
+
   const localLogo = localLogoMap[icon];
   const cdnUrl = cdnLogoMap[icon];
-  const fallbackUrl = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${icon}.svg`;
+  const slug = iconToSlug[icon] ?? icon;
+  const fallbackUrl = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${slug}.svg`;
 
   return (
     <TechLogoImage
       src={localLogo || cdnUrl || fallbackUrl}
       alt={name}
       fallbackSrc={cdnUrl || fallbackUrl}
-      iconName={icon}
+      simpleIconsSlug={slug}
     />
   );
 
@@ -497,7 +524,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href={`/${locale}`} className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
-              Entertainment
+              MoeinTech
             </Link>
             <div className="hidden md:flex items-center space-x-1">
               <Link 
@@ -575,7 +602,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       Marketing
                     </span>
                     <span className="text-gray-300 font-light text-base">/</span>
-                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-500 group-hover:to-orange-600 transition-all duration-300">
+                    <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent group-hover:from-indigo-500 group-hover:to-indigo-600 transition-all duration-300">
                       AI
                     </span>
                     <span className="text-gray-300 font-light text-base">/</span>
@@ -683,13 +710,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* AI Solutions */}
-              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-orange-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
-                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
+              <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                <div className="w-14 h-14 mb-4 flex items-center justify-center bg-white rounded-xl group-hover:scale-110 transition-all duration-300 shadow-lg p-2">
+                  <Image 
+                    src="/assets/logos/AI.jpeg" 
+                    alt="AI" 
+                    width={56} 
+                    height={56} 
+                    className="object-contain rounded-lg w-full h-full"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
                   {t('services.ai.title')}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed font-medium">
@@ -701,7 +732,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      {/* Technologies Section - Infinite Scroll */}
+      {/* Technologies Section - Infinite Scroll (identical EN/FA: same logos, order, scroll) */}
       <section id="technologies" className="border-t border-gray-100 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="max-w-7xl mx-auto">
@@ -714,15 +745,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </p>
             </div>
             
-            {/* Infinite Scrolling Container */}
+            {/* Infinite Scrolling Container - always LTR */}
             <div className="relative overflow-hidden w-full" dir="ltr">
-              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }}>
+              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
                   {/* AI Platforms */}
                   <TechLogo name="OpenAI" color="green" icon="openai" />
                   <TechLogo name="Claude" color="purple" icon="claude" />
                   <TechLogo name="Gemini" color="blue" icon="gemini" />
                   <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
-                  <TechLogo name="PyTorch" color="red" icon="pytorch" />
                   
                   {/* Cloud Platforms */}
                   <TechLogo name="AWS" color="orange" icon="aws" />
@@ -765,7 +795,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <TechLogo name="Claude" color="purple" icon="claude" />
                   <TechLogo name="Gemini" color="blue" icon="gemini" />
                   <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
-                  <TechLogo name="PyTorch" color="red" icon="pytorch" />
                   
                   {/* Cloud Platforms */}
                   <TechLogo name="AWS" color="orange" icon="aws" />
@@ -949,6 +978,44 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      {/* Apps We've Built – same format as Technologies */}
+      <section id="apps-we-built" className="border-t border-gray-100 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 tracking-tight">
+                {t('appsWeBuilt.title')}
+              </h2>
+              <p className="text-base text-gray-600 max-w-2xl mx-auto">
+                {t('appsWeBuilt.subtitle')}
+              </p>
+            </div>
+            
+            <div className="relative overflow-hidden w-full" dir="ltr">
+              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
+                <AppLogo name={t('projects.courtOfficer.title')} iconUrl={appIcons.courtOfficer} />
+                <AppLogo name={t('projects.tennis.title')} iconUrl={appIcons.tennis} />
+                <AppLogo name={t('projects.publicSpeaking.title')} iconUrl={appIcons.publicSpeaking} />
+                <AppLogo name={t('projects.musicSheet.title')} iconUrl={appIcons.musicSheet} />
+                <AppLogo name={t('projects.guardCard.title')} iconUrl={appIcons.guardCard} />
+                <AppLogo name={t('projects.dateGenie.title')} iconUrl={appIcons.dateGenie} />
+                <AppLogo name={t('projects.asisCpp.title')} iconUrl={appIcons.asisCpp} />
+                <AppLogo name={t('projects.quickDraw.title')} iconUrl={appIcons.quickDraw} />
+                {/* Duplicate for seamless loop */}
+                <AppLogo name={t('projects.courtOfficer.title')} iconUrl={appIcons.courtOfficer} />
+                <AppLogo name={t('projects.tennis.title')} iconUrl={appIcons.tennis} />
+                <AppLogo name={t('projects.publicSpeaking.title')} iconUrl={appIcons.publicSpeaking} />
+                <AppLogo name={t('projects.musicSheet.title')} iconUrl={appIcons.musicSheet} />
+                <AppLogo name={t('projects.guardCard.title')} iconUrl={appIcons.guardCard} />
+                <AppLogo name={t('projects.dateGenie.title')} iconUrl={appIcons.dateGenie} />
+                <AppLogo name={t('projects.asisCpp.title')} iconUrl={appIcons.asisCpp} />
+                <AppLogo name={t('projects.quickDraw.title')} iconUrl={appIcons.quickDraw} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="border-t border-gray-100 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -1027,7 +1094,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">Entertainment</div>
+              <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">MoeinTech</div>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {t('footer.description')}
               </p>
@@ -1092,7 +1159,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
           <div className="border-t border-gray-100 pt-8 text-center">
-            <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Entertainment. {t('footer.rights')}</p>
+            <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}</p>
           </div>
         </div>
       </footer>

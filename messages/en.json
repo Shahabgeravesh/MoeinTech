@@ -93,6 +93,10 @@
       "description": "Shopping apps that sell more. From browsing products to easy checkout, we create apps that turn visitors into customers."
     }
   },
+  "appsWeBuilt": {
+    "title": "Apps We've Built",
+    "subtitle": "Some of the apps we've created for our clients."
+  },
   "projects": {
     "title": "Case Studies",
     "subtitle": "Explore our portfolio of successful app launches and marketing campaigns.",

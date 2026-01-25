@@ -55,8 +55,9 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 25s linear infinite;
+  animation: scroll 48s linear infinite;
   display: flex;
+  flex-direction: row;
   width: max-content;
   will-change: transform;
   animation-play-state: running;
