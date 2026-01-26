@@ -161,8 +161,7 @@
     "serviceOptions": {
       "appDevelopment": "ساخت اپلیکیشن",
       "webDevelopment": "ساخت وب‌سایت",
-      "marketing": "بازاریابی",
-      "consulting": "مشاوره کسب‌وکار",
+      "marketingConsulting": "بازاریابی و مشاوره",
       "ai": "هوش مصنوعی",
       "other": "سایر"
     }

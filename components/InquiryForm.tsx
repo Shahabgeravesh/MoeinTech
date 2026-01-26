@@ -108,8 +108,7 @@ export default function InquiryForm() {
             <option value="">{t('servicePlaceholder')}</option>
             <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>
             <option value="webDevelopment">{t('serviceOptions.webDevelopment')}</option>
-            <option value="marketing">{t('serviceOptions.marketing')}</option>
-            <option value="consulting">{t('serviceOptions.consulting')}</option>
+            <option value="marketingConsulting">{t('serviceOptions.marketingConsulting')}</option>
             <option value="ai">{t('serviceOptions.ai')}</option>
             <option value="other">{t('serviceOptions.other')}</option>
           </select>

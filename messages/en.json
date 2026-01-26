@@ -161,8 +161,7 @@
     "serviceOptions": {
       "appDevelopment": "App Development",
       "webDevelopment": "Web Development",
-      "marketing": "Marketing",
-      "consulting": "Business Consulting",
+      "marketingConsulting": "Marketing & Consulting",
       "ai": "AI Solutions",
       "other": "Other"
     }
