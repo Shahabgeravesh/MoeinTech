@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import MobileNavMenu from '@/components/MobileNavMenu';
 import InquiryForm from '@/components/InquiryForm';
 import TechLogoImage from '@/components/TechLogoImage';
 import Link from 'next/link';
@@ -430,9 +431,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     education: '/assets/Videos/Education.mp4',
     sports: '/assets/Videos/Sports and Fitness.mp4',
     lifestyle: '/assets/Videos/Dating.mp4',
-    healthcare: null,
-    finance: null,
-    productivity: null,
+    smallBusiness: '/assets/Videos/Smallbusiness.mp4',
     ecommerce: '/assets/Videos/ecommerce.mp4',
   };
 
@@ -482,32 +481,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       iconHoverText: 'group-hover:text-pink-600',
       iconHoverBorder: 'hover:border-pink-500',
     },
-    healthcare: {
-      bg: 'from-green-50 via-emerald-50 to-teal-50',
-      border: 'border-green-200',
-      hoverBorder: 'hover:border-green-400',
-      hoverText: 'group-hover:text-green-600',
-      iconGradient: 'from-green-500 to-green-600',
-      iconHoverText: 'group-hover:text-green-600',
-      iconHoverBorder: 'hover:border-green-500',
-    },
-    finance: {
-      bg: 'from-emerald-50 via-teal-50 to-cyan-50',
-      border: 'border-emerald-200',
-      hoverBorder: 'hover:border-emerald-400',
-      hoverText: 'group-hover:text-emerald-600',
-      iconGradient: 'from-emerald-500 to-emerald-600',
-      iconHoverText: 'group-hover:text-emerald-600',
-      iconHoverBorder: 'hover:border-emerald-500',
-    },
-    productivity: {
-      bg: 'from-indigo-50 via-blue-50 to-purple-50',
-      border: 'border-indigo-200',
-      hoverBorder: 'hover:border-indigo-400',
-      hoverText: 'group-hover:text-indigo-600',
-      iconGradient: 'from-indigo-500 to-indigo-600',
-      iconHoverText: 'group-hover:text-indigo-600',
-      iconHoverBorder: 'hover:border-indigo-500',
+    smallBusiness: {
+      bg: 'from-blue-50 via-indigo-50 to-purple-50',
+      border: 'border-blue-200',
+      hoverBorder: 'hover:border-blue-400',
+      hoverText: 'group-hover:text-blue-600',
+      iconGradient: 'from-blue-500 to-indigo-600',
+      iconHoverText: 'group-hover:text-blue-600',
+      iconHoverBorder: 'hover:border-blue-500',
     },
     ecommerce: {
       bg: 'from-orange-50 via-amber-50 to-yellow-50',
@@ -523,49 +504,62 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href={`/${locale}`} className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
+            <Link href={`/${locale}`} className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight hover:opacity-90 transition-opacity">
               MoeinTech
             </Link>
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center gap-1">
               <Link 
                 href={`/${locale}#services`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 {t('nav.services')}
               </Link>
               <Link 
+                href={`/${locale}#technologies`} 
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              >
+                {t('nav.technologies')}
+              </Link>
+              <Link 
+                href={`/${locale}#why`} 
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              >
+                {t('nav.why')}
+              </Link>
+              <Link 
                 href={`/${locale}#industries`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 {t('nav.industries')}
               </Link>
               <Link 
                 href={`/${locale}#projects`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 {t('nav.caseStudies')}
               </Link>
               <Link 
                 href={`/${locale}#about`} 
-                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                className="px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 {t('nav.about')}
               </Link>
-              <div className="mx-2">
-                <LanguageSwitcher />
+              <div className="w-px h-6 bg-gray-200 mx-2" aria-hidden="true" />
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher compact />
               </div>
               <Link
                 href={`/${locale}#contact`}
-                className="ml-2 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transition-all rounded-lg shadow-md hover:shadow-lg"
+                className="ml-1 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all"
               >
                 {t('hero.ctaPrimary')}
               </Link>
             </div>
-            <div className="md:hidden flex items-center space-x-2">
-              <LanguageSwitcher />
+            <div className="flex items-center gap-2 md:hidden">
+              <MobileNavMenu />
             </div>
           </div>
         </div>
@@ -734,7 +728,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             
             {/* Infinite Scrolling Container - always LTR */}
             <div className="relative overflow-hidden w-full" dir="ltr">
-              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
+              <div className="flex animate-scroll-slow gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
                   {/* AI Platforms */}
                   <TechLogo name="OpenAI" color="green" icon="openai" />
                   <TechLogo name="Claude" color="purple" icon="claude" />
@@ -897,34 +891,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 colors={industryColors.lifestyle}
               />
 
-              {/* Healthcare */}
-              <IndustryCard
-                industryKey="healthcare"
-                title={t('industries.healthcare.title')}
-                description={industryVideos.healthcare ? undefined : t('industries.healthcare.description')}
-                icon={
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                }
-                videoPath={industryVideos.healthcare}
-                colors={industryColors.healthcare}
-              />
-
-              {/* Finance */}
-              <IndustryCard
-                industryKey="finance"
-                title={t('industries.finance.title')}
-                description={industryVideos.finance ? undefined : t('industries.finance.description')}
-                icon={
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                }
-                videoPath={industryVideos.finance}
-                colors={industryColors.finance}
-              />
-
               {/* Entertainment */}
               <IndustryCard
                 industryKey="entertainment"
@@ -933,18 +899,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 colors={industryColors.entertainment}
               />
 
-              {/* Productivity */}
+              {/* Small Business */}
               <IndustryCard
-                industryKey="productivity"
-                title={t('industries.productivity.title')}
-                description={industryVideos.productivity ? undefined : t('industries.productivity.description')}
+                industryKey="smallBusiness"
+                title={t('industries.smallBusiness.title')}
+                description={industryVideos.smallBusiness ? undefined : t('industries.smallBusiness.description')}
                 icon={
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 }
-                videoPath={industryVideos.productivity}
-                colors={industryColors.productivity}
+                videoPath={industryVideos.smallBusiness}
+                colors={industryColors.smallBusiness}
               />
 
               {/* E-Commerce */}
@@ -965,8 +931,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      {/* Apps We've Built – same format as Technologies */}
-      <section id="apps-we-built" className="border-t border-gray-100 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      {/* Apps We've Built – same format as Technologies (nav: Case Studies / #projects) */}
+      <section id="projects" className="border-t border-gray-100 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12 text-center">
@@ -981,7 +947,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             
             <div className="relative overflow-hidden w-full" dir="ltr">
-              <div className="flex animate-scroll gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
+              <div className="flex animate-scroll-fast gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
                 <AppLogo name={t('projects.courtOfficer.title')} iconUrl={appIcons.courtOfficer} />
                 <AppLogo name={t('projects.tennis.title')} iconUrl={appIcons.tennis} />
                 <AppLogo name={t('projects.publicSpeaking.title')} iconUrl={appIcons.publicSpeaking} />
@@ -1097,13 +1063,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${locale}#technologies`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    {t('nav.technologies')}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}#why`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    {t('nav.why')}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}#industries`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    {t('nav.industries')}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${locale}#projects`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.caseStudies')}
+                    {t('nav.caseStudies')}
                   </Link>
                 </li>
                 <li>
                   <Link href={`/${locale}#about`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
                     {t('footer.about')}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}#contact`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    {t('footer.contact')}
                   </Link>
                 </li>
                 <li>
@@ -1119,8 +1105,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-100 pt-8 text-center">
-            <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}</p>
+          <div className="border-t border-gray-100 pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}</p>
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </footer>

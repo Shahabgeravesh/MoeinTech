@@ -2,16 +2,18 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "technologies": "Technologies",
+    "why": "Why Us",
     "industries": "Industries",
-    "caseStudies": "Case Studies",
+    "caseStudies": "Apps We've Built",
     "about": "About the Team",
     "contact": "Contact",
     "getStarted": "Get in Touch"
   },
   "hero": {
     "servicesBadge": "Mobile / Web / Marketing / AI / Consulting",
-    "title": "We Build & Market Mobile Apps That Grow Your Business",
-    "subtitle": "Turn your app idea into reality. We create beautiful mobile apps and help you get customers. From start to finish, we make it simple and affordable.",
+    "title": "We Use the Latest Technologies to Help You Grow Your Business",
+    "subtitle": "Turn your app idea into reality. We create mobile apps, websites, add AI features, online marketing, and help you refine your business ideas. From start to finish, we make it simple and affordable.",
     "ctaPrimary": "Get in Touch",
     "ctaSecondary": "Schedule a Call"
   },
@@ -78,21 +80,13 @@
       "title": "Lifestyle",
       "description": "Apps that make daily life better. From dating to organizing your day, we build apps that connect people and improve their routines."
     },
-    "healthcare": {
-      "title": "Healthcare",
-      "description": "Safe and secure health apps. From video doctor visits to tracking your health, we make healthcare easier to access for everyone."
-    },
-    "finance": {
-      "title": "Finance",
-      "description": "Secure money apps. Help people manage their money, invest smart, and use banking services. We build trusted apps with strong security."
-    },
     "entertainment": {
       "title": "Entertainment",
       "description": "Fun apps that people love. From games to streaming, we create apps that keep users entertained and coming back for more."
     },
-    "productivity": {
-      "title": "Productivity",
-      "description": "Apps that help teams work together and people stay organized. From to-do lists to team chat, we build apps that make work easier."
+    "smallBusiness": {
+      "title": "Small Business",
+      "description": "Custom apps and websites for small businesses. We help local shops, restaurants, and service providers grow with technology. Simple, affordable solutions that work."
     },
     "ecommerce": {
       "title": "E-Commerce",

@@ -65,6 +65,28 @@ body {
   direction: ltr; /* Always LTR for logos regardless of page direction */
 }
 
+.animate-scroll-slow {
+  animation: scroll 72s linear infinite;
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  will-change: transform;
+  animation-play-state: running;
+  gap: 2rem;
+  direction: ltr;
+}
+
+.animate-scroll-fast {
+  animation: scroll 28s linear infinite;
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  will-change: transform;
+  animation-play-state: running;
+  gap: 2rem;
+  direction: ltr;
+}
+
 /* Animated blob background */
 @keyframes blob {
   0% {
