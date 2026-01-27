@@ -37,12 +37,15 @@ Cloudflare Pages is an excellent free hosting platform for Next.js applications 
    - Select the `MoeinTech` repository
    - Click "Begin setup"
 
-5. **Configure build settings**:
+5. **Configure build settings** (CRITICAL - follow exactly):
    - **Framework preset**: Next.js (auto-detected)
-   - **Build command**: `npm run build` (auto-filled)
-   - **Build output directory**: `.next` (auto-filled)
+   - **Build command**: `npm run pages:build` (IMPORTANT: Use this exact command)
+   - **Build output directory**: `.vercel/output/static` (IMPORTANT: Use this exact directory)
    - **Root directory**: `/` (leave as default)
+   - **Deploy command**: ⚠️ **MUST BE EMPTY** - Delete any existing deploy command (like `npx wrangler deploy`)
    - Click "Save and Deploy"
+
+   **Important**: If you see a "Deploy command" field, make sure it's completely empty. Cloudflare Pages will automatically deploy after the build completes - no deploy command is needed.
 
 6. **Your site will be live in ~3-5 minutes!**
    - URL format: `https://moeintech.pages.dev` (or custom name you choose)

@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "buildOutputDirectory": ".next",
+  "buildCommand": "npm run pages:build",
+  "buildOutputDirectory": ".vercel/output/static",
   "installCommand": "npm install",
   "framework": "nextjs",
   "nodeVersion": "18"
