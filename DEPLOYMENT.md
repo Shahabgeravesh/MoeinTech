@@ -9,66 +9,31 @@
 
 These features **cannot be statically exported** to GitHub Pages.
 
-## Recommended: Deploy to Cloudflare Pages (Free & Optimal)
+## Recommended: Deploy to Vercel (Free & Optimal)
 
-Cloudflare Pages is an excellent free hosting platform for Next.js applications and offers:
-- ✅ Free hosting with generous limits
-- ✅ Automatic deployments from GitHub
-- ✅ Full support for Next.js server features
-- ✅ Global CDN for fast performance worldwide
-- ✅ Automatic SSL certificates
-- ✅ No authentication required to view the site
-- ✅ Zero configuration needed
-
-### Quick Deploy to Cloudflare Pages:
-
-1. **Push your code to GitHub** (already done ✅)
-
-2. **Go to [dash.cloudflare.com](https://dash.cloudflare.com)** and sign in (free account)
-
-3. **Navigate to Pages**:
-   - Click "Workers & Pages" in the sidebar
-   - Click "Create application"
-   - Select "Pages" tab
-   - Click "Connect to Git"
-
-4. **Connect your GitHub repository**:
-   - Authorize Cloudflare to access your GitHub
-   - Select the `MoeinTech` repository
-   - Click "Begin setup"
-
-5. **Configure build settings** (CRITICAL - follow exactly):
-   - **Framework preset**: Next.js (auto-detected)
-   - **Build command**: `npm run pages:build` (IMPORTANT: Use this exact command)
-   - **Build output directory**: `.vercel/output/static` (IMPORTANT: Use this exact directory)
-   - **Root directory**: `/` (leave as default)
-   - **Deploy command**: 
-     - **Option 1 (Recommended)**: Leave completely EMPTY/BLANK - Delete any existing deploy command
-     - **Option 2 (If you can't remove it)**: Set to `npm run pages:deploy` (this is a no-op script)
-   - Click "Save and Deploy"
-
-   **Important**: Cloudflare Pages will automatically deploy after the build completes. If the deploy command field cannot be removed, use `npm run pages:deploy` which does nothing but exit successfully.
-
-6. **Your site will be live in ~3-5 minutes!**
-   - URL format: `https://moeintech.pages.dev` (or custom name you choose)
-   - You can add a custom domain later in the Pages settings
-
-### Alternative: Deploy to Vercel (Also Free)
-
-Vercel is also an excellent option:
+Vercel is the recommended platform for Next.js applications and offers:
 - ✅ Free hosting
 - ✅ Automatic deployments from GitHub
 - ✅ Full support for Next.js server features
 - ✅ Edge network for fast global performance
 - ✅ Automatic SSL certificates
+- ✅ Zero configuration needed
 
-**Quick Deploy to Vercel:**
-1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-2. Click "Add New Project"
-3. Select the `MoeinTech` repository
-4. Vercel will auto-detect Next.js settings
-5. Click "Deploy"
-6. Your site will be live at `https://moeintech.vercel.app`
+### Quick Deploy to Vercel:
+
+1. **Push your code to GitHub** (already done ✅)
+
+2. **Go to [vercel.com](https://vercel.com)** and sign in with GitHub
+
+3. **Import your repository**:
+   - Click "Add New Project"
+   - Select the `MoeinTech` repository
+   - Vercel will auto-detect Next.js settings
+   - Click "Deploy"
+
+4. **Your site will be live in ~2 minutes!**
+   - URL format: `https://moeintech.vercel.app`
+   - You can add a custom domain later
 
 ## Alternative: GitHub Pages (Requires Code Changes)
 

@@ -5,19 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @cloudflare/next-on-pages@1",
-    "pages:deploy": "echo 'Deployment handled automatically by Cloudflare Pages'",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "^14.2.0",
+    "next-intl": "^3.15.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "next": "^14.2.4",
-    "next-intl": "^3.15.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.9.0",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
