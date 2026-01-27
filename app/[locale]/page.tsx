@@ -432,6 +432,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     sports: '/assets/Videos/Sports and Fitness.mp4',
     lifestyle: '/assets/Videos/Dating.mp4',
     smallBusiness: '/assets/Videos/Smallbusiness.mp4',
+    travel: '/assets/Videos/Travel.mp4',
+    foodRestaurant: '/assets/Videos/Food, restaurant.mp4',
     ecommerce: '/assets/Videos/ecommerce.mp4',
   };
 
@@ -489,6 +491,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       iconGradient: 'from-blue-500 to-indigo-600',
       iconHoverText: 'group-hover:text-blue-600',
       iconHoverBorder: 'hover:border-blue-500',
+    },
+    travel: {
+      bg: 'from-cyan-50 via-teal-50 to-emerald-50',
+      border: 'border-cyan-200',
+      hoverBorder: 'hover:border-cyan-400',
+      hoverText: 'group-hover:text-cyan-600',
+      iconGradient: 'from-cyan-500 to-teal-600',
+      iconHoverText: 'group-hover:text-cyan-600',
+      iconHoverBorder: 'hover:border-cyan-500',
+    },
+    foodRestaurant: {
+      bg: 'from-red-50 via-orange-50 to-amber-50',
+      border: 'border-red-200',
+      hoverBorder: 'hover:border-red-400',
+      hoverText: 'group-hover:text-red-600',
+      iconGradient: 'from-red-500 to-orange-600',
+      iconHoverText: 'group-hover:text-red-600',
+      iconHoverBorder: 'hover:border-red-500',
     },
     ecommerce: {
       bg: 'from-orange-50 via-amber-50 to-yellow-50',
@@ -911,6 +931,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 }
                 videoPath={industryVideos.smallBusiness}
                 colors={industryColors.smallBusiness}
+              />
+
+              {/* Travel */}
+              <IndustryCard
+                industryKey="travel"
+                title={t('industries.travel.title')}
+                videoPath={industryVideos.travel}
+                colors={industryColors.travel}
+              />
+
+              {/* Food & Restaurant */}
+              <IndustryCard
+                industryKey="foodRestaurant"
+                title={t('industries.foodRestaurant.title')}
+                videoPath={industryVideos.foodRestaurant}
+                colors={industryColors.foodRestaurant}
               />
 
               {/* E-Commerce */}
