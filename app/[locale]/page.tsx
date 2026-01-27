@@ -644,11 +644,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* App Development */}
               <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
                 <div className="flex h-full">
-                  {/* Image/Icon - 50% */}
-                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-6 group-hover:scale-105 transition-transform duration-300">
-                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
+                  {/* Image - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src="/assets/logos/App Dev.jpg" 
+                      alt="App Development" 
+                      width={180} 
+                      height={180} 
+                      className="object-contain rounded-lg w-full h-full"
+                    />
                   </div>
                   {/* Text - 50% */}
                   <div className="w-1/2 p-6 flex flex-col justify-center">
@@ -665,11 +669,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* Web Development */}
               <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
                 <div className="flex h-full">
-                  {/* Image/Icon - 50% */}
-                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 p-6 group-hover:scale-105 transition-transform duration-300">
-                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
+                  {/* Image - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src="/assets/logos/Web Dev.jpg" 
+                      alt="Web Development" 
+                      width={180} 
+                      height={180} 
+                      className="object-contain rounded-lg w-full h-full"
+                    />
                   </div>
                   {/* Text - 50% */}
                   <div className="w-1/2 p-6 flex flex-col justify-center">
@@ -686,11 +694,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {/* Marketing & Consulting */}
               <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
                 <div className="flex h-full">
-                  {/* Image/Icon - 50% */}
-                  <div className="w-1/2 flex items-center justify-center bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600 p-6 group-hover:scale-105 transition-transform duration-300">
-                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
+                  {/* Image - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src="/assets/logos/Marketing.jpg" 
+                      alt="Marketing & Consulting" 
+                      width={180} 
+                      height={180} 
+                      className="object-contain rounded-lg w-full h-full"
+                    />
                   </div>
                   {/* Text - 50% */}
                   <div className="w-1/2 p-6 flex flex-col justify-center">
