@@ -150,18 +150,19 @@ function AppLogo({ name, iconUrl }: { name: string; iconUrl: string | null }) {
 function TechIcon({ icon, name }: { icon: string; name: string }) {
   // Local overrides (optional) – from public/assets/
   const localLogoMap: Record<string, string> = {
-    aws: '/assets/AWS.jpeg',
+    aws: '/assets/logos/AWS Logo.png',
+    microsoft: '/assets/logos/Microsoft.png',
   };
   
-  // CDN – main logos and brand colors (identical EN/FA). OpenAI & Microsoft use jsdelivr (reliable).
+  // CDN – main logos and brand colors (identical EN/FA). OpenAI uses jsdelivr (reliable).
   const cdnLogoMap: Record<string, string> = {
     openai: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg',
     claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
-    gemini: 'https://cdn.simpleicons.org/google/4285F4',
+    gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
     tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
     aws: 'https://cdn.simpleicons.org/amazonaws/FF9900',
     azure: 'https://cdn.simpleicons.org/microsoftazure/0078D4',
-    microsoft: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg',
+    microsoft: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoft.svg',
     gcp: 'https://cdn.simpleicons.org/googlecloud/4285F4',
     vercel: 'https://cdn.simpleicons.org/vercel/000000',
     netlify: 'https://cdn.simpleicons.org/netlify/00C7B7',
@@ -188,7 +189,7 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
 
   // Simple Icons slugs for fallbacks (icon key -> slug). Ensures GCP → googlecloud, etc.
   const iconToSlug: Record<string, string> = {
-    openai: 'openai', claude: 'anthropic', gemini: 'google', tensorflow: 'tensorflow',
+    openai: 'openai', claude: 'anthropic', gemini: 'googlegemini', tensorflow: 'tensorflow',
     aws: 'amazonaws', azure: 'microsoftazure', microsoft: 'microsoft', gcp: 'googlecloud',
     vercel: 'vercel', netlify: 'netlify', cloudflare: 'cloudflare', mongodb: 'mongodb',
     postgresql: 'postgresql', redis: 'redis', firebase: 'firebase', supabase: 'supabase',
@@ -201,11 +202,23 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
   const cdnUrl = cdnLogoMap[icon];
   const slug = iconToSlug[icon] ?? icon;
   const jsdelivrUrl = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${slug}.svg`;
+  const unpkgUrl = `https://unpkg.com/simple-icons@v11/icons/${slug}.svg`;
   const simpleiconsUrl = `https://cdn.simpleicons.org/${slug}`;
-  // OpenAI & Microsoft: primary = jsdelivr, fallback = simpleicons (avoids retrying same URL).
-  const useJsdelivrFirst = icon === 'openai' || icon === 'microsoft';
-  const primary = localLogo || (useJsdelivrFirst ? jsdelivrUrl : cdnUrl) || jsdelivrUrl;
-  const fallback = useJsdelivrFirst ? simpleiconsUrl : (cdnUrl || jsdelivrUrl);
+  // OpenAI: primary = jsdelivr (reliable), fallback = simpleicons (avoids retrying same URL).
+  // Microsoft: primary = colored simpleicons (brand blue), fallback = unpkg, then jsdelivr.
+  // Others: primary = cdnUrl (simpleicons colored), fallback = jsdelivr (different source for reliability).
+  const useJsdelivrFirst = icon === 'openai';
+  let primary: string;
+  let fallback: string;
+  
+  if (icon === 'microsoft') {
+    // Microsoft: use latest simple-icons from jsdelivr, then unpkg, then colored simpleicons
+    primary = localLogo || 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoft.svg';
+    fallback = 'https://unpkg.com/simple-icons@latest/icons/microsoft.svg';
+  } else {
+    primary = localLogo || (useJsdelivrFirst ? jsdelivrUrl : cdnUrl) || jsdelivrUrl;
+    fallback = useJsdelivrFirst ? simpleiconsUrl : jsdelivrUrl;
+  }
 
   return (
     <TechLogoImage
@@ -578,7 +591,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {t('hero.ctaPrimary')}
               </Link>
             </div>
-            <div className="flex items-center gap-2 md:hidden">
+            <div className="flex items-center gap-3 md:hidden">
+              <LanguageSwitcher compact />
               <MobileNavMenu />
             </div>
           </div>
@@ -771,16 +785,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <TechLogo name="AWS" color="orange" icon="aws" />
                   <TechLogo name="GCP" color="blue" icon="gcp" />
                   <TechLogo name="Microsoft" color="blue" icon="microsoft" />
-                  <TechLogo name="Vercel" color="black" icon="vercel" />
-                  <TechLogo name="Netlify" color="teal" icon="netlify" />
-                  <TechLogo name="Cloudflare" color="orange" icon="cloudflare" />
-                  
-                  {/* Databases */}
-                  <TechLogo name="MongoDB" color="green" icon="mongodb" />
-                  <TechLogo name="PostgreSQL" color="blue" icon="postgresql" />
-                  <TechLogo name="Redis" color="red" icon="redis" />
-                  <TechLogo name="Firebase" color="orange" icon="firebase" />
-                  <TechLogo name="Supabase" color="green" icon="supabase" />
                   
                   {/* Frontend */}
                   <TechLogo name="React" color="blue" icon="react" />
@@ -799,7 +803,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {/* Tools & Services */}
                   <TechLogo name="Stripe" color="purple" icon="stripe" />
                   <TechLogo name="GitHub" color="black" icon="github" />
-                  <TechLogo name="GitLab" color="orange" icon="gitlab" />
                   <TechLogo name="Figma" color="purple" icon="figma" />
                   
                   {/* Duplicate set for seamless loop - no gap */}
@@ -813,16 +816,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <TechLogo name="AWS" color="orange" icon="aws" />
                   <TechLogo name="GCP" color="blue" icon="gcp" />
                   <TechLogo name="Microsoft" color="blue" icon="microsoft" />
-                  <TechLogo name="Vercel" color="black" icon="vercel" />
-                  <TechLogo name="Netlify" color="teal" icon="netlify" />
-                  <TechLogo name="Cloudflare" color="orange" icon="cloudflare" />
-                  
-                  {/* Databases */}
-                  <TechLogo name="MongoDB" color="green" icon="mongodb" />
-                  <TechLogo name="PostgreSQL" color="blue" icon="postgresql" />
-                  <TechLogo name="Redis" color="red" icon="redis" />
-                  <TechLogo name="Firebase" color="orange" icon="firebase" />
-                  <TechLogo name="Supabase" color="green" icon="supabase" />
                   
                   {/* Frontend */}
                   <TechLogo name="React" color="blue" icon="react" />
@@ -841,7 +834,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {/* Tools & Services */}
                   <TechLogo name="Stripe" color="purple" icon="stripe" />
                   <TechLogo name="GitHub" color="black" icon="github" />
-                  <TechLogo name="GitLab" color="orange" icon="gitlab" />
                   <TechLogo name="Figma" color="purple" icon="figma" />
               </div>
             </div>
@@ -881,6 +873,34 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Small Business */}
+              <IndustryCard
+                industryKey="smallBusiness"
+                title={t('industries.smallBusiness.title')}
+                description={industryVideos.smallBusiness ? undefined : t('industries.smallBusiness.description')}
+                icon={
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                }
+                videoPath={industryVideos.smallBusiness}
+                colors={industryColors.smallBusiness}
+              />
+
+              {/* E-Commerce */}
+              <IndustryCard
+                industryKey="ecommerce"
+                title={t('industries.ecommerce.title')}
+                description={industryVideos.ecommerce ? undefined : t('industries.ecommerce.description')}
+                icon={
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                }
+                videoPath={industryVideos.ecommerce}
+                colors={industryColors.ecommerce}
+              />
+
               {/* Education */}
               <IndustryCard
                 industryKey="education"
@@ -931,20 +951,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 colors={industryColors.entertainment}
               />
 
-              {/* Small Business */}
-              <IndustryCard
-                industryKey="smallBusiness"
-                title={t('industries.smallBusiness.title')}
-                description={industryVideos.smallBusiness ? undefined : t('industries.smallBusiness.description')}
-                icon={
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                }
-                videoPath={industryVideos.smallBusiness}
-                colors={industryColors.smallBusiness}
-              />
-
               {/* Travel */}
               <IndustryCard
                 industryKey="travel"
@@ -959,20 +965,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 title={t('industries.foodRestaurant.title')}
                 videoPath={industryVideos.foodRestaurant}
                 colors={industryColors.foodRestaurant}
-              />
-
-              {/* E-Commerce */}
-              <IndustryCard
-                industryKey="ecommerce"
-                title={t('industries.ecommerce.title')}
-                description={industryVideos.ecommerce ? undefined : t('industries.ecommerce.description')}
-                icon={
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                  </svg>
-                }
-                videoPath={industryVideos.ecommerce}
-                colors={industryColors.ecommerce}
               />
             </div>
           </div>
@@ -1056,8 +1048,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.successfulProjects')}</div>
                   </div>
                   <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
-                    <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">10+</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperience')}</div>
+                    <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">{t('about.yearsExperience')}</div>
+                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperienceLabel')}</div>
                   </div>
                 </div>
               </div>

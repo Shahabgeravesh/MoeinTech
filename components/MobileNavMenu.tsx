@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import LanguageSwitcher from './LanguageSwitcher';
 
 const navKeys = ['services', 'technologies', 'why', 'industries', 'caseStudies', 'about'] as const;
 
@@ -48,9 +47,6 @@ export default function MobileNavMenu() {
                   {t(key)}
                 </Link>
               ))}
-              <div className="pt-4 pb-2">
-                <LanguageSwitcher />
-              </div>
               <Link
                 href={`/${locale}#contact`}
                 onClick={() => setOpen(false)}
