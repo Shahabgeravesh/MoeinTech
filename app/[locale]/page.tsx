@@ -119,11 +119,7 @@ function IndustryCard({
 function TechLogo({ name, color, icon }: { name: string; color: string; icon: string }) {
   return (
     <div className="group flex flex-col items-center justify-center p-5 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[160px]" dir="ltr">
-      <div
-        className={`mb-3 flex items-center justify-center overflow-hidden ${
-          icon === 'microsoft' ? 'w-44 h-44' : 'w-28 h-28'
-        }`}
-      >
+      <div className="mb-3 flex items-center justify-center overflow-hidden w-28 h-28">
         <TechIcon icon={icon} name={name} />
       </div>
       <span className="text-base font-bold text-gray-900 group-hover:text-gray-700 transition-colors text-center tracking-tight">{name}</span>
@@ -165,7 +161,8 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     openai: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg',
     claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
     gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
-    google: 'https://cdn.simpleicons.org/google/4285F4',
+    // Use official full-color \"G\" Google logo (PNG so it keeps colors)
+    google: 'https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png',
     tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
     aws: 'https://cdn.simpleicons.org/amazonaws/FF9900',
     azure: 'https://cdn.simpleicons.org/microsoftazure/0078D4',
@@ -784,7 +781,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="relative overflow-hidden w-full" dir="ltr">
               <div className="flex animate-scroll-slow gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
                 {[
-                  { name: 'Chatgpt', color: 'green', icon: 'openai' },
+                  { name: 'ChatGPT', color: 'green', icon: 'openai' },
                   { name: 'Claude', color: 'purple', icon: 'claude' },
                   { name: 'Google Gemini', color: 'blue', icon: 'google' },
                   { name: 'Amazon', color: 'orange', icon: 'aws' },
@@ -798,7 +795,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
                 {/* Duplicate set for seamless loop */}
                 {[
-                  { name: 'Chatgpt', color: 'green', icon: 'openai' },
+                  { name: 'ChatGPT', color: 'green', icon: 'openai' },
                   { name: 'Claude', color: 'purple', icon: 'claude' },
                   { name: 'Google Gemini', color: 'blue', icon: 'google' },
                   { name: 'Amazon', color: 'orange', icon: 'aws' },

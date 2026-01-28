@@ -9,8 +9,8 @@ export default function LanguageSwitcher({ compact }: { compact?: boolean }) {
   const pathname = usePathname();
 
   const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'fa', name: 'فارسی', flag: '🇮🇷' }
+    { code: 'en', name: 'English' },
+    { code: 'fa', name: 'فارسی' }
   ];
 
   const switchLanguage = (newLocale: string) => {
@@ -39,7 +39,6 @@ export default function LanguageSwitcher({ compact }: { compact?: boolean }) {
           }`}
           aria-label={`Switch to ${lang.name}`}
         >
-          <span className={compact ? 'text-base' : 'text-2xl'}>{lang.flag}</span>
           <span className="whitespace-nowrap">{lang.name}</span>
         </button>
       ))}
