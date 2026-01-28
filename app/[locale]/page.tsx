@@ -624,10 +624,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-normal md:leading-snug bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-normal md:leading-snug bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight text-center">
               {t('hero.title')}
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-12 leading-relaxed max-w-3xl font-medium">
+            <p className="text-lg md:text-xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto font-medium text-center">
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
