@@ -5,6 +5,7 @@ import { locales } from '@/i18n';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
           {children}
         </NextIntlClientProvider>
         <SpeedInsights />
+        <Analytics />
         <Script
           id="structured-data"
           type="application/ld+json"
