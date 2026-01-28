@@ -78,12 +78,14 @@ function IndustryCard({
         <div className="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-all duration-300">
           <video
             className="w-full h-auto rounded-xl"
-            controls
             preload="metadata"
             autoPlay
             muted
             loop
             playsInline
+            controls={false}
+            disablePictureInPicture
+            controlsList="nodownload noplaybackrate noremoteplayback"
           >
             <source src={videoPath} type="video/mp4" />
             Your browser does not support the video tag.
@@ -117,7 +119,11 @@ function IndustryCard({
 function TechLogo({ name, color, icon }: { name: string; color: string; icon: string }) {
   return (
     <div className="group flex flex-col items-center justify-center p-5 rounded-xl transition-all duration-300 hover:scale-105 bg-transparent min-w-[160px]" dir="ltr">
-      <div className="w-28 h-28 mb-3 flex items-center justify-center">
+      <div
+        className={`mb-3 flex items-center justify-center overflow-hidden ${
+          icon === 'microsoft' ? 'w-44 h-44' : 'w-28 h-28'
+        }`}
+      >
         <TechIcon icon={icon} name={name} />
       </div>
       <span className="text-base font-bold text-gray-900 group-hover:text-gray-700 transition-colors text-center tracking-tight">{name}</span>
@@ -159,6 +165,7 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     openai: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg',
     claude: 'https://cdn.simpleicons.org/anthropic/D977A6',
     gemini: 'https://cdn.simpleicons.org/googlegemini/4285F4',
+    google: 'https://cdn.simpleicons.org/google/4285F4',
     tensorflow: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
     aws: 'https://cdn.simpleicons.org/amazonaws/FF9900',
     azure: 'https://cdn.simpleicons.org/microsoftazure/0078D4',
@@ -184,12 +191,13 @@ function TechIcon({ icon, name }: { icon: string; name: string }) {
     stripe: 'https://cdn.simpleicons.org/stripe/635BFF',
     github: 'https://cdn.simpleicons.org/github/181717',
     gitlab: 'https://cdn.simpleicons.org/gitlab/FC6D26',
-    figma: 'https://cdn.simpleicons.org/figma/F24E1E',
+    // Use official multicolor Figma logo instead of single-color orange
+    figma: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
   };
 
   // Simple Icons slugs for fallbacks (icon key -> slug). Ensures GCP → googlecloud, etc.
   const iconToSlug: Record<string, string> = {
-    openai: 'openai', claude: 'anthropic', gemini: 'googlegemini', tensorflow: 'tensorflow',
+    openai: 'openai', claude: 'anthropic', gemini: 'googlegemini', google: 'google', tensorflow: 'tensorflow',
     aws: 'amazonaws', azure: 'microsoftazure', microsoft: 'microsoft', gcp: 'googlecloud',
     vercel: 'vercel', netlify: 'netlify', cloudflare: 'cloudflare', mongodb: 'mongodb',
     postgresql: 'postgresql', redis: 'redis', firebase: 'firebase', supabase: 'supabase',
@@ -661,7 +669,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
                     <Image 
-                      src="/assets/logos/App Dev.jpg" 
+                      src="/assets/logos/App Dev.jpeg" 
                       alt="App Development" 
                       width={180} 
                       height={180} 
@@ -686,7 +694,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
                     <Image 
-                      src="/assets/logos/Web Dev.jpg" 
+                      src="/assets/logos/Web Dev.jpeg" 
                       alt="Web Development" 
                       width={180} 
                       height={180} 
@@ -705,13 +713,38 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </div>
               </div>
 
+              {/* AI Solutions */}
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+                <div className="flex h-full">
+                  {/* Image - 50% */}
+                  <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src="/assets/logos/AI.jpg" 
+                      alt="AI" 
+                      width={180} 
+                      height={180} 
+                      className="object-contain rounded-lg w-full h-full"
+                    />
+                  </div>
+                  {/* Text - 50% */}
+                  <div className="w-1/2 p-6 flex flex-col justify-center">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                      {t('services.ai.title')}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {t('services.ai.description')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Marketing & Consulting */}
               <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
                 <div className="flex h-full">
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
                     <Image 
-                      src="/assets/logos/Marketing.jpg" 
+                      src="/assets/logos/Marketing and Business Consulting.jpg" 
                       alt="Marketing & Consulting" 
                       width={180} 
                       height={180} 
@@ -725,31 +758,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed font-medium">
                       {t('services.marketingConsulting.description')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* AI Solutions */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
-                <div className="flex h-full">
-                  {/* Image - 50% */}
-                  <div className="w-1/2 flex items-center justify-center bg-white p-6 group-hover:scale-105 transition-transform duration-300">
-                    <Image 
-                      src="/assets/logos/AI.jpeg" 
-                      alt="AI" 
-                      width={120} 
-                      height={120} 
-                      className="object-contain rounded-lg"
-                    />
-                  </div>
-                  {/* Text - 50% */}
-                  <div className="w-1/2 p-6 flex flex-col justify-center">
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
-                      {t('services.ai.title')}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                      {t('services.ai.description')}
                     </p>
                   </div>
                 </div>
@@ -775,66 +783,32 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {/* Infinite Scrolling Container - always LTR */}
             <div className="relative overflow-hidden w-full" dir="ltr">
               <div className="flex animate-scroll-slow gap-8 items-center" style={{ width: 'max-content' }} dir="ltr">
-                  {/* AI Platforms */}
-                  <TechLogo name="OpenAI" color="green" icon="openai" />
-                  <TechLogo name="Claude" color="purple" icon="claude" />
-                  <TechLogo name="Gemini" color="blue" icon="gemini" />
-                  <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
-                  
-                  {/* Cloud Platforms */}
-                  <TechLogo name="AWS" color="orange" icon="aws" />
-                  <TechLogo name="GCP" color="blue" icon="gcp" />
-                  <TechLogo name="Microsoft" color="blue" icon="microsoft" />
-                  
-                  {/* Frontend */}
-                  <TechLogo name="React" color="blue" icon="react" />
-                  <TechLogo name="Next.js" color="black" icon="nextjs" />
-                  <TechLogo name="React Native" color="blue" icon="react" />
-                  <TechLogo name="Flutter" color="blue" icon="flutter" />
-                  <TechLogo name="TypeScript" color="blue" icon="typescript" />
-                  
-                  {/* Backend */}
-                  <TechLogo name="Node.js" color="green" icon="nodejs" />
-                  <TechLogo name="Python" color="yellow" icon="python" />
-                  <TechLogo name="Go" color="blue" icon="go" />
-                  <TechLogo name="Docker" color="blue" icon="docker" />
-                  <TechLogo name="Kubernetes" color="blue" icon="kubernetes" />
-                  
-                  {/* Tools & Services */}
-                  <TechLogo name="Stripe" color="purple" icon="stripe" />
-                  <TechLogo name="GitHub" color="black" icon="github" />
-                  <TechLogo name="Figma" color="purple" icon="figma" />
-                  
-                  {/* Duplicate set for seamless loop - no gap */}
-                  {/* AI Platforms */}
-                  <TechLogo name="OpenAI" color="green" icon="openai" />
-                  <TechLogo name="Claude" color="purple" icon="claude" />
-                  <TechLogo name="Gemini" color="blue" icon="gemini" />
-                  <TechLogo name="TensorFlow" color="orange" icon="tensorflow" />
-                  
-                  {/* Cloud Platforms */}
-                  <TechLogo name="AWS" color="orange" icon="aws" />
-                  <TechLogo name="GCP" color="blue" icon="gcp" />
-                  <TechLogo name="Microsoft" color="blue" icon="microsoft" />
-                  
-                  {/* Frontend */}
-                  <TechLogo name="React" color="blue" icon="react" />
-                  <TechLogo name="Next.js" color="black" icon="nextjs" />
-                  <TechLogo name="React Native" color="blue" icon="react" />
-                  <TechLogo name="Flutter" color="blue" icon="flutter" />
-                  <TechLogo name="TypeScript" color="blue" icon="typescript" />
-                  
-                  {/* Backend */}
-                  <TechLogo name="Node.js" color="green" icon="nodejs" />
-                  <TechLogo name="Python" color="yellow" icon="python" />
-                  <TechLogo name="Go" color="blue" icon="go" />
-                  <TechLogo name="Docker" color="blue" icon="docker" />
-                  <TechLogo name="Kubernetes" color="blue" icon="kubernetes" />
-                  
-                  {/* Tools & Services */}
-                  <TechLogo name="Stripe" color="purple" icon="stripe" />
-                  <TechLogo name="GitHub" color="black" icon="github" />
-                  <TechLogo name="Figma" color="purple" icon="figma" />
+                {[
+                  { name: 'Chatgpt', color: 'green', icon: 'openai' },
+                  { name: 'Claude', color: 'purple', icon: 'claude' },
+                  { name: 'Google Gemini', color: 'blue', icon: 'google' },
+                  { name: 'Amazon', color: 'orange', icon: 'aws' },
+                  { name: 'Microsoft', color: 'blue', icon: 'microsoft' },
+                  { name: 'Stripe', color: 'purple', icon: 'stripe' },
+                  { name: 'GitHub', color: 'black', icon: 'github' },
+                  { name: 'Figma', color: 'purple', icon: 'figma' },
+                ].map((tech) => (
+                  <TechLogo key={`tech-a-${tech.icon}-${tech.name}`} name={tech.name} color={tech.color} icon={tech.icon} />
+                ))}
+
+                {/* Duplicate set for seamless loop */}
+                {[
+                  { name: 'Chatgpt', color: 'green', icon: 'openai' },
+                  { name: 'Claude', color: 'purple', icon: 'claude' },
+                  { name: 'Google Gemini', color: 'blue', icon: 'google' },
+                  { name: 'Amazon', color: 'orange', icon: 'aws' },
+                  { name: 'Microsoft', color: 'blue', icon: 'microsoft' },
+                  { name: 'Stripe', color: 'purple', icon: 'stripe' },
+                  { name: 'GitHub', color: 'black', icon: 'github' },
+                  { name: 'Figma', color: 'purple', icon: 'figma' },
+                ].map((tech) => (
+                  <TechLogo key={`tech-b-${tech.icon}-${tech.name}`} name={tech.name} color={tech.color} icon={tech.icon} />
+                ))}
               </div>
             </div>
           </div>
@@ -1023,34 +997,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {t('about.subtitle')}
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-2xl font-semibold text-white">DM</span>
+            <div className="max-w-3xl">
+              <p className="text-gray-600 leading-relaxed mb-8">
+                {t('about.description')}
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                  <div className="text-3xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">100+</div>
+                  <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.successfulProjects')}</div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-2 text-gray-900">
-                  {t('about.drMoeen.title')}
-                </h3>
-                <p className="text-sm text-blue-600 font-medium mb-6">
-                  {t('about.drMoeen.role')}
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {t('about.drMoeen.bio')}
-                </p>
-              </div>
-              <div>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {t('about.description')}
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-                    <div className="text-3xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">100+</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.successfulProjects')}</div>
-                  </div>
-                  <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
-                    <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">{t('about.yearsExperience')}</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperienceLabel')}</div>
-                  </div>
+                <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
+                  <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">{t('about.yearsExperience')}</div>
+                  <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperienceLabel')}</div>
                 </div>
               </div>
             </div>
@@ -1131,11 +1089,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <Link href={`/${locale}#contact`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
                     {t('footer.contact')}
                   </Link>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.blog')}
-                  </a>
                 </li>
                 <li>
                   <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">

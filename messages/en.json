@@ -4,7 +4,7 @@
     "services": "Services",
     "technologies": "Technologies",
     "why": "Why Us",
-    "industries": "Industries",
+    "industries": "Business Types",
     "caseStudies": "Apps We've Built",
     "about": "About the Team",
     "contact": "Contact",
@@ -59,15 +59,10 @@
     "successfulProjects": "Successful Projects",
     "yearsExperience": "25+",
     "yearsExperienceLabel": "Combined Years of Experience",
-    "description": "MoeinTech is led by a team of experienced professionals dedicated to building and marketing exceptional mobile applications. Under the leadership of Dr. Moein, we combine technical expertise with strategic marketing insights to help apps succeed in competitive markets.",
-    "drMoeen": {
-      "title": "Dr. Moein",
-      "role": "Founder & Technology Leader",
-      "bio": "With extensive experience in technology and business innovation, Dr. Moein leads MoeinTech with a commitment to excellence and a passion for transforming businesses through cutting-edge solutions."
-    }
+    "description": "MoeinTech is a team of experienced professionals dedicated to building and marketing exceptional mobile applications. We combine technical expertise with strategic marketing insights to help apps succeed in competitive markets."
   },
   "industries": {
-    "title": "We've Built Apps For Many Industries",
+    "title": "We’ve Built Apps for All Types of Businesses",
     "subtitle": "No matter what business you're in, we can help you create an app that works.",
     "education": {
       "title": "Education",
@@ -190,4 +185,3 @@
     "rights": "All rights reserved."
   }
 }
-

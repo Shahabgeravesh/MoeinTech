@@ -29,19 +29,20 @@ export default function TechLogoImage({ src, alt, fallbackSrc, simpleIconsSlug }
     }
   };
 
-  // Check if this is Microsoft (needs to be bigger) or AWS (needs object-contain to avoid cropping)
-  const isMicrosoft = src.includes('/assets/logos/') && src.includes('Microsoft');
-  const isAWS = src.includes('/assets/logos/') && src.includes('AWS');
-  const objectFit = isAWS ? 'object-contain' : (isMicrosoft ? 'object-cover' : 'object-contain');
-  const maxSize = isMicrosoft ? '140px' : '112px'; // Make Microsoft bigger
+  const isMicrosoft = alt.toLowerCase().includes('microsoft') || imgSrc.includes('/assets/logos/Microsoft');
 
   return (
     <img
       src={imgSrc}
       alt={alt}
       dir="ltr"
-      className={`w-full h-full ${objectFit}`}
-      style={{ maxWidth: maxSize, maxHeight: maxSize, filter: 'none', direction: 'ltr' }}
+      className={`w-full h-full ${isMicrosoft ? 'object-cover' : 'object-contain'}`}
+      style={{
+        filter: 'none',
+        direction: 'ltr',
+        transform: isMicrosoft ? 'scale(1.15)' : undefined,
+        transformOrigin: 'center',
+      }}
       loading="lazy"
       onError={handleError}
     />
