@@ -630,7 +630,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="text-lg md:text-xl text-gray-700 mb-12 leading-relaxed max-w-3xl font-medium">
               {t('hero.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href={`/${locale}#contact`}
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transition-all rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transform duration-300"
@@ -983,29 +983,39 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* About Section */}
-      <section id="about" className="border-t border-gray-100 bg-white">
+      <section id="about" className="border-t border-gray-100 bg-gradient-to-b from-white via-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="max-w-5xl mx-auto">
-            <div className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent tracking-tight">
-                {t('about.title')}
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl">
-                {t('about.subtitle')}
-              </p>
-            </div>
-            <div className="max-w-3xl">
-              <p className="text-gray-600 leading-relaxed mb-8">
-                {t('about.description')}
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-                  <div className="text-3xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">100+</div>
-                  <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.successfulProjects')}</div>
-                </div>
-                <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
-                  <div className="text-3xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">{t('about.yearsExperience')}</div>
-                  <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">{t('about.yearsExperienceLabel')}</div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-100 px-6 py-10 md:px-10 md:py-12">
+              <div className="text-center mb-8 md:mb-10">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-3 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent tracking-tight">
+                  {t('about.title')}
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  {t('about.subtitle')}
+                </p>
+              </div>
+              <div className="max-w-3xl mx-auto text-center">
+                <p className="text-gray-600 leading-relaxed mb-10">
+                  {t('about.description')}
+                </p>
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+                    <div className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">
+                      100+
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide font-medium">
+                      {t('about.successfulProjects')}
+                    </div>
+                  </div>
+                  <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100">
+                    <div className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">
+                      {t('about.yearsExperience')}
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide font-medium">
+                      {t('about.yearsExperienceLabel')}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
