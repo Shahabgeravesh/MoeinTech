@@ -545,9 +545,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href={`/${locale}`} className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight hover:opacity-90 transition-opacity">
-              MoeinTech
-            </Link>
+            <div className="flex items-center gap-3">
+              <Link
+                href={`/${locale}`}
+                className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight hover:opacity-90 transition-opacity"
+              >
+                MoeinTech
+              </Link>
+              <Link
+                href={`/${locale}#contact`}
+                className="hidden md:inline-flex items-center justify-center ms-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                {t('hero.ctaPrimary')}
+              </Link>
+            </div>
             <div className="hidden md:flex items-center gap-1">
               <Link 
                 href={`/${locale}#services`} 
@@ -589,12 +600,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div className="flex items-center gap-2">
                 <LanguageSwitcher compact />
               </div>
-              <Link
-                href={`/${locale}#contact`}
-                className="ms-1 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all"
-              >
-                {t('hero.ctaPrimary')}
-              </Link>
             </div>
             <div className="flex items-center gap-3 md:hidden">
               <LanguageSwitcher compact />
