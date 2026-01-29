@@ -741,7 +741,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
                     <Image 
-                      src="/assets/logos/Marketing and Business Consulting.jpg" 
+                      src="/assets/logos/Marketing.jpg" 
                       alt="Marketing" 
                       width={180} 
                       height={180} 
@@ -765,7 +765,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <div className="flex h-full">
                   <div className="w-1/3 min-w-[200px] flex items-center justify-center bg-white p-6 group-hover:scale-105 transition-transform duration-300">
                     <Image
-                      src="/assets/logos/Marketing and Business Consulting.jpg"
+                      src="/assets/logos/Consulting.jpg"
                       alt={t('services.businessIdeaConsulting.title')}
                       width={200}
                       height={200}
