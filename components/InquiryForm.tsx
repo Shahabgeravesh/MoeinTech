@@ -109,6 +109,8 @@ export default function InquiryForm() {
             <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>
             <option value="webDevelopment">{t('serviceOptions.webDevelopment')}</option>
             <option value="marketingConsulting">{t('serviceOptions.marketingConsulting')}</option>
+            <option value="consulting">{t('serviceOptions.consulting')}</option>
+            <option value="businessIdeaConsulting">{t('serviceOptions.businessIdeaConsulting')}</option>
             <option value="ai">{t('serviceOptions.ai')}</option>
             <option value="other">{t('serviceOptions.other')}</option>
           </select>
@@ -117,7 +119,7 @@ export default function InquiryForm() {
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
             {t('message')}
-            <span className="text-red-500 ml-1">*</span>
+            <span className="text-red-500 ms-1">*</span>
           </label>
           <textarea
             id="message"

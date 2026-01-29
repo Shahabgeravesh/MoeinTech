@@ -591,7 +591,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
               <Link
                 href={`/${locale}#contact`}
-                className="ml-1 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all"
+                className="ms-1 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 rounded-lg shadow-md hover:shadow-lg transition-all"
               >
                 {t('hero.ctaPrimary')}
               </Link>
@@ -653,7 +653,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {t('services.title')}
                 </h2>
               )}
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium text-center">
                 {t('services.subtitle')}
               </p>
             </div>
@@ -742,7 +742,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
                     <Image 
                       src="/assets/logos/Marketing and Business Consulting.jpg" 
-                      alt="Marketing & Consulting" 
+                      alt="Marketing" 
                       width={180} 
                       height={180} 
                       className="object-contain rounded-lg w-full h-full"
@@ -755,6 +755,29 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed font-medium">
                       {t('services.marketingConsulting.description')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Business Idea Consulting - full-width card on its own row */}
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden md:col-span-2" dir="ltr">
+                <div className="flex h-full">
+                  <div className="w-1/3 min-w-[200px] flex items-center justify-center bg-white p-6 group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src="/assets/logos/Marketing and Business Consulting.jpg"
+                      alt={t('services.businessIdeaConsulting.title')}
+                      width={200}
+                      height={200}
+                      className="object-contain rounded-lg w-full h-full max-h-48"
+                    />
+                  </div>
+                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {t('services.businessIdeaConsulting.title')}
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                      {t('services.businessIdeaConsulting.description')}
                     </p>
                   </div>
                 </div>
@@ -1050,65 +1073,89 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <div className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">MoeinTech</div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {t('footer.description')}
+      <footer className="border-t border-gray-200 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-10 md:mb-12">
+              {/* Brand */}
+              <div className="text-center md:text-start">
+                <Link
+                  href={`/${locale}`}
+                  className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:opacity-90 transition-opacity"
+                >
+                  MoeinTech
+                </Link>
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed max-w-xs mx-auto md:mx-0">
+                  {t('footer.description')}
+                </p>
+              </div>
+
+              {/* Services links */}
+              <div className="text-center md:text-start">
+                <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                  {t('footer.services')}
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <Link href={`/${locale}#services`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('nav.services')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}#technologies`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('nav.technologies')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}#industries`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('nav.industries')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}#projects`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('nav.caseStudies')}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company links */}
+              <div className="text-center md:text-start">
+                <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                  {t('footer.company')}
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <Link href={`/${locale}#why`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('nav.why')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}#about`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('footer.about')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}#contact`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('footer.contact')}
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                      {t('footer.privacy')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-gray-500 text-center sm:text-start order-2 sm:order-1">
+                &copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}
               </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">{t('footer.company')}</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href={`/${locale}#services`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.services')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#technologies`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('nav.technologies')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#why`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('nav.why')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#industries`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('nav.industries')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#projects`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('nav.caseStudies')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#about`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.about')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}#contact`} className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.contact')}
-                  </Link>
-                </li>
-                <li>
-                  <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
-                    {t('footer.privacy')}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-100 pt-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MoeinTech. {t('footer.rights')}</p>
-              <LanguageSwitcher />
+              <div className="order-1 sm:order-2">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         </div>

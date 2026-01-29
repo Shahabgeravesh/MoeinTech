@@ -11,7 +11,7 @@
     "getStarted": "Get in touch now"
   },
   "hero": {
-    "servicesBadge": "Mobile / Web / Marketing / AI / Consulting",
+    "servicesBadge": "Mobile | Web | Marketing | AI | Consulting",
     "title": "We use modern technology to help your business grow",
     "subtitle": "Turn your app idea into reality. We design and build mobile apps and websites, integrate AI features, handle online marketing, and help refine your business concept. From idea to launch, we make the process simple, efficient, and affordable.",
     "ctaPrimary": "Get in touch now",
@@ -45,8 +45,12 @@
       "description": "Get expert advice on how to grow your business with technology. We help you make smart decisions about apps, websites, and digital strategies that work for your business."
     },
     "marketingConsulting": {
-      "title": "Marketing & Consulting",
+      "title": "Marketing",
       "description": "We help people find and download your app or visit your website. Using smart strategies, we bring the right customers to you. Get expert advice on how to grow your business with technology and make smart decisions about apps, websites, and digital strategies."
+    },
+    "businessIdeaConsulting": {
+      "title": "Business Idea Consulting",
+      "description": "Turn your idea into a clear business plan. We help you validate your concept, define your market, and shape a strategy so you can launch with confidence."
     },
     "ai": {
       "title": "AI Solutions",
@@ -165,7 +169,9 @@
     "serviceOptions": {
       "appDevelopment": "App Development",
       "webDevelopment": "Web Development",
-      "marketingConsulting": "Marketing & Consulting",
+      "marketingConsulting": "Marketing",
+      "consulting": "Business Consulting",
+      "businessIdeaConsulting": "Business Idea Consulting",
       "ai": "AI Solutions",
       "other": "Other"
     }
