@@ -28,13 +28,13 @@ export default function LanguageSwitcher({ compact }: { compact?: boolean }) {
             compact
               ? `gap-1.5 px-2.5 py-2 text-sm font-semibold min-w-0 ${
                   locale === lang.code
-                    ? 'bg-gradient-to-r from-sky-500 via-sky-600 to-cyan-500 text-white shadow-[0_0_0_1px_rgba(14,165,233,0.7),0_10px_26px_rgba(8,145,178,0.6)]'
-                    : 'text-cyan-700 border border-cyan-200 bg-cyan-50/80 hover:bg-cyan-100 hover:border-cyan-300'
+                    ? 'bg-sky-600 text-white shadow-md'
+                    : 'text-sky-800 border border-sky-300 bg-sky-50/80 hover:bg-sky-100 hover:border-sky-400'
                 }`
               : `gap-3 px-6 py-3.5 text-lg font-bold rounded-xl min-w-[120px] ${
                   locale === lang.code
-                    ? 'bg-gradient-to-r from-sky-500 via-sky-600 to-cyan-500 text-white shadow-[0_0_0_1px_rgba(14,165,233,0.7),0_18px_38px_rgba(8,145,178,0.65)] scale-105'
-                    : 'bg-white text-cyan-900 border-2 border-cyan-200 hover:border-cyan-400 hover:bg-cyan-50 shadow-sm hover:shadow-md'
+                    ? 'bg-sky-600 text-white shadow-lg scale-105'
+                    : 'bg-white text-sky-900 border-2 border-sky-300 hover:border-sky-500 hover:bg-sky-50 shadow-sm hover:shadow-md'
                 }`
           }`}
           aria-label={`Switch to ${lang.name}`}
