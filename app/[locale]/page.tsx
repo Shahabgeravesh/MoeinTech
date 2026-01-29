@@ -3,7 +3,6 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import MobileNavMenu from '@/components/MobileNavMenu';
 import InquiryForm from '@/components/InquiryForm';
 import TechLogoImage from '@/components/TechLogoImage';
-import SpeedVideo from '@/components/SpeedVideo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { locales } from '@/i18n';
@@ -77,9 +76,7 @@ function IndustryCard({
         
         {/* Video */}
         <div className="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-all duration-300">
-          <SpeedVideo
-            src={videoPath}
-            playbackRate={1.35}
+          <video
             className="w-full h-auto rounded-xl"
             preload="metadata"
             autoPlay
@@ -89,7 +86,10 @@ function IndustryCard({
             controls={false}
             disablePictureInPicture
             controlsList="nodownload noplaybackrate noremoteplayback"
-          />
+          >
+            <source src={videoPath} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     );
