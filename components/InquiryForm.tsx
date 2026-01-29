@@ -100,19 +100,33 @@ export default function InquiryForm() {
           <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
             {t('service')}
           </label>
-          <select
-            id="service"
-            name="service"
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
-          >
-            <option value="">{t('servicePlaceholder')}</option>
-            <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>
-            <option value="webDevelopment">{t('serviceOptions.webDevelopment')}</option>
-            <option value="marketingConsulting">{t('serviceOptions.marketingConsulting')}</option>
-            <option value="businessIdeaConsulting">{t('serviceOptions.businessIdeaConsulting')}</option>
-            <option value="ai">{t('serviceOptions.ai')}</option>
-            <option value="other">{t('serviceOptions.other')}</option>
-          </select>
+          <div className="relative">
+            <select
+              id="service"
+              name="service"
+              className="w-full py-3 ps-4 pe-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none text-start truncate"
+            >
+              <option value="">{t('servicePlaceholder')}</option>
+              <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>
+              <option value="webDevelopment">{t('serviceOptions.webDevelopment')}</option>
+              <option value="marketingConsulting">{t('serviceOptions.marketingConsulting')}</option>
+              <option value="businessIdeaConsulting">{t('serviceOptions.businessIdeaConsulting')}</option>
+              <option value="ai">{t('serviceOptions.ai')}</option>
+              <option value="other">{t('serviceOptions.other')}</option>
+            </select>
+            <svg
+              className="pointer-events-none absolute inset-y-0 end-3 my-auto h-5 w-5 text-gray-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
         </div>
 
         <div>
