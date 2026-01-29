@@ -77,7 +77,8 @@ export default function InquiryForm() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              dir="ltr"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-left placeholder:text-left"
               placeholder={t('emailPlaceholder')}
             />
           </div>
