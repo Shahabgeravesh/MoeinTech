@@ -28,13 +28,13 @@ export default function LanguageSwitcher({ compact }: { compact?: boolean }) {
             compact
               ? `gap-1.5 px-2.5 py-2 text-sm font-extrabold min-w-0 ${
                   locale === lang.code
-                    ? 'bg-sky-600 text-white shadow-md'
-                    : 'text-sky-800 border border-sky-300 bg-sky-50/80 hover:bg-sky-100 hover:border-sky-400'
+                    ? 'bg-amber-500 text-white shadow-md'
+                    : 'text-amber-800 border border-amber-300 bg-amber-50/90 hover:bg-amber-100 hover:border-amber-400'
                 }`
               : `gap-3 px-6 py-3.5 text-lg font-extrabold rounded-xl min-w-[120px] ${
                   locale === lang.code
-                    ? 'bg-sky-600 text-white shadow-lg scale-105'
-                    : 'bg-white text-sky-900 border-2 border-sky-300 hover:border-sky-500 hover:bg-sky-50 shadow-sm hover:shadow-md'
+                    ? 'bg-amber-500 text-white shadow-lg scale-105'
+                    : 'bg-white text-amber-900 border-2 border-amber-300 hover:border-amber-500 hover:bg-amber-50 shadow-sm hover:shadow-md'
                 }`
           }`}
           aria-label={`Switch to ${lang.name}`}
