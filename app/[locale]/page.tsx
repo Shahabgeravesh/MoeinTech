@@ -617,7 +617,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="max-w-4xl mx-auto">
             <div className="mb-10 text-center">
               <div className="inline-flex items-center justify-center group">
-                <span className="text-base md:text-lg font-extrabold tracking-wide bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:via-purple-600 transition-all duration-300 drop-shadow-[0_8px_28px_rgba(59,130,246,0.25)]">
+                <span className="text-lg md:text-xl font-extrabold tracking-[0.16em] uppercase bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-600 group-hover:via-purple-600 transition-all duration-300 drop-shadow-[0_10px_32px_rgba(59,130,246,0.3)]">
                   {t('hero.servicesBadge')}
                 </span>
               </div>
