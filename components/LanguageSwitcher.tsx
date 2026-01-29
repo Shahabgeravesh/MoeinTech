@@ -39,7 +39,13 @@ export default function LanguageSwitcher({ compact }: { compact?: boolean }) {
           }`}
           aria-label={`Switch to ${lang.name}`}
         >
-          <span className="whitespace-nowrap">{lang.name}</span>
+          <span
+            className={`whitespace-nowrap ${
+              lang.code === 'fa' ? 'font-black' : ''
+            }`}
+          >
+            {lang.name}
+          </span>
         </button>
       ))}
     </div>
