@@ -616,10 +616,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="mb-10 text-center">
-              <div className="inline-flex items-center gap-3 md:gap-5 px-8 md:px-10 py-4 md:py-5 bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group overflow-hidden relative">
-                {/* Subtle animated gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <span className="relative text-sm md:text-base font-semibold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:via-purple-500 transition-all duration-300">
+              <div className="inline-flex items-center justify-center group">
+                <span className="text-base md:text-lg font-extrabold tracking-wide bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:via-purple-600 transition-all duration-300 drop-shadow-[0_8px_28px_rgba(59,130,246,0.25)]">
                   {t('hero.servicesBadge')}
                 </span>
               </div>
