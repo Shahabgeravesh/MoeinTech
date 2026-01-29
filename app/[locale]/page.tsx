@@ -661,7 +661,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {/* Services Grid - 2x2 Layout with 50/50 Image/Text Split */}
             <div className="grid md:grid-cols-2 gap-6">
               {/* App Development */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden">
                 <div className="flex h-full">
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
@@ -686,7 +686,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* Web Development */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden">
                 <div className="flex h-full">
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
@@ -711,7 +711,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* AI Solutions */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden">
                 <div className="flex h-full">
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
@@ -736,7 +736,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* Marketing & Consulting */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden" dir="ltr">
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden">
                 <div className="flex h-full">
                   {/* Image - 50% */}
                   <div className="w-1/2 flex items-center justify-center bg-white p-4 group-hover:scale-105 transition-transform duration-300">
@@ -761,7 +761,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* Business Idea Consulting - full-width card on its own row */}
-              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden md:col-span-2" dir="ltr">
+              <div className="bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 overflow-hidden md:col-span-2">
                 <div className="flex h-full">
                   <div className="w-1/3 min-w-[200px] flex items-center justify-center bg-white p-6 group-hover:scale-105 transition-transform duration-300">
                     <Image

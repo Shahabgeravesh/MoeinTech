@@ -56,7 +56,7 @@ export default function InquiryForm() {
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
               {t('name')}
-              <span className="text-red-500 ml-1">*</span>
+              <span className="text-red-500 ms-1">*</span>
             </label>
             <input
               type="text"
@@ -70,7 +70,7 @@ export default function InquiryForm() {
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
               {t('email')}
-              <span className="text-red-500 ml-1">*</span>
+              <span className="text-red-500 ms-1">*</span>
             </label>
             <input
               type="email"
