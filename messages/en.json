@@ -12,14 +12,18 @@
   },
   "hero": {
     "servicesBadge": "Mobile | Web | Marketing | AI | Consulting",
-    "title": "We use modern technology to help your business grow",
+    "title": "We Use The Latest Technologies To Help Your Business Grow",
     "subtitle": "Turn your app idea into reality. We design and build mobile apps and websites, integrate AI features, handle online marketing, and help refine your business concept. From idea to launch, we make the process simple, efficient, and affordable.",
     "ctaPrimary": "Get in touch now",
     "ctaSecondary": "Schedule a Call"
   },
   "why": {
     "title": "Why Choose MoeinTech?",
-    "description": "At MoeinTech, you work with a smart, experienced team that knows how to get results. We build mobile apps and websites, add AI features like chatbots, handle digital marketing, and help refine your business ideas, all in one place. With years of real-world experience and clear communication, we help you launch faster, avoid costly mistakes, and grow with confidence."
+    "item1": "Smart, experienced team that delivers results",
+    "item2": "Apps, websites, and AI features built to grow your business",
+    "item3": "Digital marketing that brings real customers",
+    "item4": "Business idea consulting to help you start right",
+    "item5": "Simple process, clear communication, no headaches"
   },
   "technologies": {
     "title": "Built with the Best Technology",
@@ -63,7 +67,7 @@
     "successfulProjects": "Successful Projects",
     "yearsExperience": "25+",
     "yearsExperienceLabel": "Combined Years of Experience",
-    "description": "MoeinTech is a team of experienced professionals dedicated to building and marketing exceptional mobile applications. We combine technical expertise with strategic marketing insights to help apps succeed in competitive markets."
+    "description": "We're a Silicon Valley–based team of engineers and business builders from top U.S. schools, with over 25 years of combined experience creating digital products and growing online businesses. Based in the San Francisco Bay Area, we work closely with startups in Silicon Valley and around the world, giving us hands-on experience across many businesses.\n\nWe move fast and focus on rapid prototyping, helping non-technical founders turn ideas into real, market-ready products. We also use the latest technologies, including artificial intelligence to sharpen your ideas, speed up growth, and open new opportunities for your business."
   },
   "industries": {
     "title": "We’ve Built Apps for All Types of Businesses",
@@ -177,6 +181,7 @@
   },
   "footer": {
     "description": "App Development & App Marketing Agency",
+    "location": "San Francisco, California",
     "company": "Company",
     "services": "Services",
     "caseStudies": "Case Studies",
