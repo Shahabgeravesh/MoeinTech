@@ -81,8 +81,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="/assets/logos/Favicon.png" />
+        <link rel="apple-touch-icon" href="/assets/logos/Favicon.png" />
         <meta name="theme-color" content="#2563eb" />
       </head>
       <body className="antialiased">
