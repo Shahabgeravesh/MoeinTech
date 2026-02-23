@@ -21,10 +21,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://moeintech.com'),
   icons: {
     icon: [
-      { url: '/assets/logos/Favicon.png', type: 'image/png', sizes: '32x32' },
-      { url: '/assets/logos/Favicon.png', type: 'image/png', sizes: '192x192' },
+      { url: '/assets/logos/FaviconF.png', type: 'image/png', sizes: '32x32' },
+      { url: '/assets/logos/FaviconF.png', type: 'image/png', sizes: '192x192' },
+      { url: '/assets/logos/FaviconF.png', type: 'image/png', sizes: '512x512' },
     ],
-    apple: [{ url: '/assets/logos/Favicon.png', sizes: '180x180', type: 'image/png' }],
+    apple: [{ url: '/assets/logos/FaviconF.png', sizes: '180x180', type: 'image/png' }],
   },
   alternates: {
     canonical: '/',
@@ -88,9 +89,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="https://moeintech.com/assets/logos/Favicon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="https://moeintech.com/assets/logos/Favicon.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://moeintech.com/assets/logos/Favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://moeintech.com/assets/logos/FaviconF.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="https://moeintech.com/assets/logos/FaviconF.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="https://moeintech.com/assets/logos/FaviconF.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://moeintech.com/assets/logos/FaviconF.png" />
         <meta name="theme-color" content="#2563eb" />
       </head>
       <body className="antialiased">
@@ -108,7 +110,7 @@ export default async function LocaleLayout({
               '@type': 'Organization',
               name: 'MoeinTech',
               url: 'https://moeintech.com',
-              logo: 'https://moeintech.com/assets/logos/Favicon.png',
+              logo: 'https://moeintech.com/assets/logos/FaviconF.png',
               description: 'Leading technology solutions including app development, SEO, AI capabilities, and business consulting.',
               founder: {
                 '@type': 'Person',
