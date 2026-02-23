@@ -81,8 +81,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
       <head>
-        <link rel="icon" type="image/png" href="/assets/logos/Favicon.png" />
-        <link rel="apple-touch-icon" href="/assets/logos/Favicon.png" />
+        <link rel="icon" type="image/png" href="https://moeintech.com/assets/logos/Favicon.png" />
+        <link rel="apple-touch-icon" href="https://moeintech.com/assets/logos/Favicon.png" />
         <meta name="theme-color" content="#2563eb" />
       </head>
       <body className="antialiased">
@@ -100,7 +100,7 @@ export default async function LocaleLayout({
               '@type': 'Organization',
               name: 'MoeinTech',
               url: 'https://moeintech.com',
-              logo: 'https://moeintech.com/logo.png',
+              logo: 'https://moeintech.com/assets/logos/Favicon.png',
               description: 'Leading technology solutions including app development, SEO, AI capabilities, and business consulting.',
               founder: {
                 '@type': 'Person',
