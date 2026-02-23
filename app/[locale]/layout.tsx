@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   creator: 'MoeinTech',
   publisher: 'MoeinTech',
   metadataBase: new URL('https://moeintech.com'),
+  icons: {
+    icon: [
+      { url: '/assets/logos/Favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/assets/logos/Favicon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [{ url: '/assets/logos/Favicon.png', sizes: '180x180', type: 'image/png' }],
+  },
   alternates: {
     canonical: '/',
     languages: {
@@ -81,8 +88,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
       <head>
-        <link rel="icon" type="image/png" href="https://moeintech.com/assets/logos/Favicon.png" />
-        <link rel="apple-touch-icon" href="https://moeintech.com/assets/logos/Favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://moeintech.com/assets/logos/Favicon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="https://moeintech.com/assets/logos/Favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://moeintech.com/assets/logos/Favicon.png" />
         <meta name="theme-color" content="#2563eb" />
       </head>
       <body className="antialiased">
