@@ -105,7 +105,7 @@ export default function InquiryForm() {
             <select
               id="service"
               name="service"
-              className="w-full py-3 ps-4 pe-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none text-start truncate"
+              className="w-full py-3 ps-4 pe-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white appearance-none text-start truncate text-gray-900 placeholder:text-gray-500"
             >
               <option value="">{t('servicePlaceholder')}</option>
               <option value="appDevelopment">{t('serviceOptions.appDevelopment')}</option>

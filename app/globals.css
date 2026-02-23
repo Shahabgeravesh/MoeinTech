@@ -28,6 +28,15 @@ body {
   }
 }
 
+/* Form selects: always dark, readable text (avoids white text on white in dark-mode OS) */
+form select {
+  color: #111827;
+}
+form select option {
+  color: #111827;
+  background: #fff;
+}
+
 /* RTL support for Farsi - Iranian Persian fonts */
 [dir="rtl"] {
   font-family: 'Tahoma', 'Arial', 'Segoe UI', 'Vazir', 'Samim', 'Shabnam', sans-serif;
